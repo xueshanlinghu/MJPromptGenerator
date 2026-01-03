@@ -3,10 +3,10 @@
     <div class="category-header">
       <span class="category-icon">{{ getIcon(category.icon) }}</span>
       <span class="category-name">{{ category.name }}</span>
-      <span class="category-count">({{ category.prompts.length }})</span>
+      <span class="category-count">({{ category.prompts?.length || 0 }})</span>
     </div>
 
-    <div class="prompts-grid">
+    <div v-if="category.prompts && category.prompts.length > 0" class="prompts-grid">
       <PromptPreview
         v-for="(prompt, index) in category.prompts"
         :key="prompt.id"
@@ -38,7 +38,7 @@ interface Props {
 }
 
 interface Emits {
-  (e: 'toggle', categoryId: string, promptId: string): void
+  (e: 'toggle', categoryId: string, promptId: string, subCategoryId?: string): void
 }
 
 const props = defineProps<Props>()
@@ -62,8 +62,8 @@ const isPromptSelected = (promptId: string) => {
   return props.selectedPrompts.has(promptId)
 }
 
-const handleTagClick = (categoryId: string, promptId: string) => {
-  emit('toggle', categoryId, promptId)
+const handleTagClick = (data: { categoryId: string, promptId: string, subCategoryId?: string }) => {
+  emit('toggle', data.categoryId, data.promptId, data.subCategoryId)
 }
 
 const handlePreview = (prompt: PromptItem, show: boolean) => {

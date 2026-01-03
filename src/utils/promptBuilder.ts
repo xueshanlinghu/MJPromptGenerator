@@ -1,31 +1,104 @@
-import type { ParameterValues } from '@/types'
+import type { ParameterValues, SelectedPrompt } from '@/types'
 
 /**
  * 提示词构建器
  */
 export class PromptBuilder {
   /**
-   * 构建最终的 Midjourney 提示词
-   * @param selectedPrompts 已选择的提示词文本数组
+   * 摄影专用提示词构建（新版）
+   * @param selectedPrompts 已选择的提示词列表（包含位置标签）
+   * @param subjectEnvironment 主体与环境描述
    * @param parameters 参数值
    * @returns 完整的提示词字符串
    */
-  static build(selectedPrompts: string[], parameters: ParameterValues): string {
-    // 1. 组合基础提示词（用逗号分隔）
-    const promptText = selectedPrompts.filter(p => p.trim()).join(', ')
+  static buildPhotography(
+    selectedPrompts: SelectedPrompt[],
+    subjectEnvironment: string,
+    parameters: ParameterValues
+  ): string {
+    // 1. 按位置标签分组
+    const groups = this.groupPromptsByPosition(selectedPrompts)
 
-    // 2. 构建参数字符串
+    // 2. 构建摄影前缀
+    const photographyPrefix = groups.artist.length > 0
+      ? `photography by ${groups.artist.map(p => p.text).join(', ')}`
+      : 'photography'
+
+    // 3. 组合各部分（按固定顺序）
+    const parts: string[] = []
+
+    // 添加摄影前缀
+    parts.push(photographyPrefix)
+
+    // 添加机位/景别（camera）
+    if (groups.camera.length > 0) {
+      parts.push(groups.camera.map(p => p.text).join(', '))
+    }
+
+    // 添加主体环境
+    const trimmedSubject = subjectEnvironment.trim()
+    if (trimmedSubject) {
+      parts.push(trimmedSubject)
+    }
+
+    // 添加打光（lighting）
+    if (groups.lighting.length > 0) {
+      parts.push(groups.lighting.map(p => p.text).join(', '))
+    }
+
+    // 添加其他（other）
+    if (groups.other.length > 0) {
+      parts.push(groups.other.map(p => p.text).join(', '))
+    }
+
+    const promptText = parts.filter(p => p).join(', ')
+
+    // 4. 添加参数（复用原有逻辑）
+    return this.addParameters(promptText, parameters)
+  }
+
+  /**
+   * 按位置标签分组提示词
+   * @param prompts 已选择的提示词列表
+   * @returns 按位置分组的提示词
+   */
+  private static groupPromptsByPosition(prompts: SelectedPrompt[]): Record<string, SelectedPrompt[]> {
+    const groups: Record<string, SelectedPrompt[]> = {
+      artist: [],
+      camera: [],
+      lighting: [],
+      other: []
+    }
+
+    prompts
+      .sort((a, b) => a.timestamp - b.timestamp)
+      .forEach(prompt => {
+        const tag = prompt.positionTag || 'other'
+        if (tag in groups) {
+          groups[tag].push(prompt)
+        } else {
+          groups.other.push(prompt)
+        }
+      })
+
+    return groups
+  }
+
+  /**
+   * 添加参数到提示词
+   * @param promptText 基础提示词文本
+   * @param parameters 参数值
+   * @returns 带参数的完整提示词
+   */
+  private static addParameters(promptText: string, parameters: ParameterValues): string {
     const params: string[] = []
 
     // 版本（特殊处理 Niji 模型）
     if (parameters.version) {
-      // Niji 模型使用 --niji 参数
       if (parameters.version.startsWith('niji')) {
-        // niji-6 -> --niji 6
         const nijiVersion = parameters.version.replace('niji-', '')
         params.push(`--niji ${nijiVersion}`)
       } else {
-        // 普通版本使用 --v 参数
         params.push(`--v ${parameters.version}`)
       }
     }
@@ -100,11 +173,25 @@ export class PromptBuilder {
       params.push(`--stop ${parameters.stop}`)
     }
 
-    // 3. 组合最终结果
+    // 组合最终结果
     if (params.length > 0) {
       return `${promptText} ${params.join(' ')}`
     }
     return promptText
+  }
+
+  /**
+   * 构建最终的 Midjourney 提示词（原版，向后兼容）
+   * @param selectedPrompts 已选择的提示词文本数组
+   * @param parameters 参数值
+   * @returns 完整的提示词字符串
+   */
+  static build(selectedPrompts: string[], parameters: ParameterValues): string {
+    // 1. 组合基础提示词（用逗号分隔）
+    const promptText = selectedPrompts.filter(p => p.trim()).join(', ')
+
+    // 2. 添加参数（复用新逻辑）
+    return this.addParameters(promptText, parameters)
   }
 
   /**

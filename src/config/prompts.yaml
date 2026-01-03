@@ -1,153 +1,218 @@
-# Midjourney 提示词配置文件
-# 您可以在这里添加自己常用的提示词
+# Midjourney 摄影提示词配置文件
+# 支持一级、二级分类结构
 
+# 主体环境示例（用于快速填充）
+subjectEnvironmentExamples:
+  - id: portrait-outdoor
+    title: 户外人像
+    subject: a woman with long hair
+    environment: in a beautiful garden with blooming flowers
+    fullText: a woman with long hair, in a beautiful garden with blooming flowers
+
+  - id: landscape-mountain
+    title: 山景
+    subject: snow-capped mountains
+    environment: under golden hour sky, misty valley below
+    fullText: snow-capped mountains, under golden hour sky, misty valley below
+
+  - id: urban-street
+    title: 城市街景
+    subject: modern city street
+    environment: at night with neon lights and rain reflections
+    fullText: modern city street, at night with neon lights and rain reflections
+
+# 提示词分类
 categories:
-  # 风格类别
-  - id: styles
-    name: 风格
-    icon: palette-outline
+  # 快门速度
+  - id: shutter-speed
+    name: 快门速度
+    icon: timer-outline
+    special:
+      positionTag: camera
+    subCategories:
+      - id: high-speed
+        name: 高速摄影
+        prompts:
+          # 占位符 - 待后续填充
+          - id: placeholder-high-speed
+            prompt_zh: 高速摄影
+            prompt_en: high speed photography
+            description: 适用于捕捉快速运动的物体
+
+      - id: time-lapse
+        name: 延时摄影
+        prompts:
+          - id: placeholder-time-lapse
+            prompt_zh: 延时摄影
+            prompt_en: time-lapse photography
+
+      - id: time-interval
+        name: 定时摄影
+        prompts:
+          - id: placeholder-time-interval
+            prompt_zh: 定时摄影
+            prompt_en: interval photography
+
+      - id: light-painting
+        name: 光涂鸦
+        prompts:
+          - id: placeholder-light-painting
+            prompt_zh: 光涂鸦
+            prompt_en: light painting
+
+  # 景深和光圈（一级分类，无二级）
+  - id: depth-aperture
+    name: 景深和光圈
+    icon: aperture-outline
+    special:
+      positionTag: camera
     prompts:
-      - id: anime
-        text: anime style
-        description: 动漫风格
-        preview: styles/anime.jpg
+      # 占位符 - 待后续填充
+      - id: placeholder-dof
+        prompt_zh: 景深效果
+        prompt_en: depth of field
 
-      - id: photorealistic
-        text: photorealistic, ultra detailed, 8k
-        description: 照片级真实感
-        preview: styles/photorealistic.jpg
+  # 镜头的长短和位置
+  - id: lens-position
+    name: 镜头的长短和位置
+    icon: camera-outline
+    special:
+      positionTag: camera
+    subCategories:
+      - id: lens-position-sub
+        name: 镜头位置
+        prompts:
+          - id: placeholder-lens-position
+            prompt_zh: 镜头位置
+            prompt_en: camera position
 
-      - id: watercolor
-        text: watercolor painting
-        description: 水彩画风格
-        preview: styles/watercolor.jpg
+      - id: shot-size
+        name: 景别
+        prompts:
+          - id: placeholder-shot-size
+            prompt_zh: 景别
+            prompt_en: shot size
 
-      - id: oil-painting
-        text: oil painting, impressionist
-        description: 油画风格
-        preview: styles/oil-painting.jpg
+      - id: shot-angle
+        name: 景别-角度
+        prompts:
+          - id: placeholder-shot-angle
+            prompt_zh: 拍摄角度
+            prompt_en: camera angle
 
-      - id: digital-art
-        text: digital art, concept art
-        description: 数字艺术
-        preview: styles/digital-art.jpg
+      - id: shot-portrait
+        name: 景别-人物
+        prompts:
+          - id: placeholder-shot-portrait
+            prompt_zh: 人物景别
+            prompt_en: portrait shot
+
+      - id: shot-special
+        name: 景别-特殊
+        prompts:
+          - id: placeholder-shot-special
+            prompt_zh: 特殊景别
+            prompt_en: special shot
+
+      - id: equipment-film
+        name: 景别-设备、胶片
+        prompts:
+          - id: placeholder-equipment
+            prompt_zh: 胶片相机
+            prompt_en: film camera
+
+  # 光线控制
+  - id: lighting
+    name: 光线控制
+    icon: sunny-outline
+    special:
+      positionTag: lighting
+    subCategories:
+      - id: light-tone
+        name: 光线-影调
+        prompts:
+          - id: placeholder-light-tone
+            prompt_zh: 光线影调
+            prompt_en: lighting tone
+
+      - id: light-position
+        name: 光线-位置
+        prompts:
+          - id: placeholder-light-position
+            prompt_zh: 光线方向
+            prompt_en: light direction
+
+      - id: light-intensity
+        name: 光线-光度
+        prompts:
+          - id: placeholder-light-intensity
+            prompt_zh: 光线强度
+            prompt_en: light intensity
+
+      - id: light-description
+        name: 光线-通用描述
+        prompts:
+          - id: placeholder-light-general
+            prompt_zh: 光照设置
+            prompt_en: lighting setup
+
+      - id: light-adjectives
+        name: 光的形容词
+        prompts:
+          - id: placeholder-light-adj
+            prompt_zh: 戏剧性光照
+            prompt_en: dramatic lighting
+
+  # 艺术家/摄影师（特殊分类：建议单选）- 放在最后
+  - id: artists
+    name: 艺术家/摄影师
+    icon: person-outline
+    special:
+      isArtist: true
+      singleSelectionHint: 建议单选，多选可能导致风格冲突
+      positionTag: artist
+    subCategories:
+      - id: surreal
+        name: 超现实
+        prompts:
+          # 占位符 - 待后续填充具体艺术家
+          - id: placeholder-surreal
+            prompt_zh: 超现实风格
+            prompt_en: surreal style
+
+      - id: vintage-surreal
+        name: 复古超现实
+        prompts:
+          - id: placeholder-vintage-surreal
+            prompt_zh: 复古超现实风格
+            prompt_en: vintage surreal style
 
       - id: minimalist
-        text: minimalist, simple, clean
-        description: 极简主义
-        # preview: styles/minimalist.jpg
+        name: 极简
+        prompts:
+          - id: placeholder-minimalist
+            prompt_zh: 极简风格
+            prompt_en: minimalist style
 
-      - id: cyberpunk
-        text: cyberpunk, neon lights, futuristic
-        description: 赛博朋克
-        # preview: styles/cyberpunk.jpg
+      - id: landscape-artist
+        name: 风景
+        prompts:
+          - id: placeholder-landscape
+            prompt_zh: 风景摄影风格
+            prompt_en: landscape photography style
 
-  # 主题类别
-  - id: subjects
-    name: 主题
-    icon: cube-outline
-    prompts:
-      - id: portrait
-        text: portrait of a person
-        description: 人物肖像
-        preview: subjects/portrait.jpg
+      - id: nightsky
+        name: 夜空
+        prompts:
+          - id: placeholder-nightsky
+            prompt_zh: 天文摄影风格
+            prompt_en: astrophotography style
 
-      - id: landscape
-        text: beautiful landscape
-        description: 风景
-        preview: subjects/landscape.jpg
+      - id: other-styles
+        name: 其他特色
+        prompts:
+          - id: placeholder-other
+            prompt_zh: 独特摄影风格
+            prompt_en: unique photography style
 
-      - id: architecture
-        text: modern architecture
-        description: 建筑
-        # preview: subjects/architecture.jpg
 
-      - id: abstract
-        text: abstract composition
-        description: 抽象构图
-        # preview: subjects/abstract.jpg
-
-      - id: fantasy
-        text: fantasy scene
-        description: 幻想场景
-        # preview: subjects/fantasy.jpg
-
-  # 光照类别
-  - id: lighting
-    name: 光照
-    icon: sunny-outline
-    prompts:
-      - id: golden-hour
-        text: golden hour lighting
-        description: 黄金时段光照
-        preview: lighting/golden-hour.jpg
-
-      - id: studio
-        text: studio lighting
-        description: 摄影棚光照
-        preview: lighting/studio.jpg
-
-      - id: dramatic
-        text: dramatic lighting, chiaroscuro
-        description: 戏剧化光照
-        # preview: lighting/dramatic.jpg
-
-      - id: soft
-        text: soft diffused lighting
-        description: 柔和漫射光
-        # preview: lighting/soft.jpg
-
-      - id: neon
-        text: neon lighting, vibrant colors
-        description: 霓虹灯光
-        # preview: lighting/neon.jpg
-
-  # 质量和细节
-  - id: quality
-    name: 质量
-    icon: sparkles-outline
-    prompts:
-      - id: highly-detailed
-        text: highly detailed, intricate
-        description: 高度细节化
-        # preview: quality/detailed.jpg
-
-      - id: sharp-focus
-        text: sharp focus, crisp
-        description: 清晰聚焦
-        # preview: quality/sharp.jpg
-
-      - id: cinematic
-        text: cinematic, film grain
-        description: 电影感
-        # preview: quality/cinematic.jpg
-
-      - id: professional
-        text: professional photography
-        description: 专业摄影
-        # preview: quality/professional.jpg
-
-  # 视角和构图
-  - id: perspective
-    name: 视角
-    icon: camera-outline
-    prompts:
-      - id: wide-angle
-        text: wide angle shot
-        description: 广角镜头
-        # preview: perspective/wide-angle.jpg
-
-      - id: close-up
-        text: close-up shot
-        description: 特写镜头
-        # preview: perspective/close-up.jpg
-
-      - id: aerial
-        text: aerial view, bird's eye view
-        description: 鸟瞰视角
-        # preview: perspective/aerial.jpg
-
-      - id: low-angle
-        text: low angle shot
-        description: 低角度拍摄
-        # preview: perspective/low-angle.jpg

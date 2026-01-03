@@ -60,8 +60,8 @@ const promptStore = usePromptStore()
 const { selectedPrompts } = storeToRefs(promptStore)
 
 // 移除已选提示词
-const handleRemovePrompt = (categoryId: string, promptId: string) => {
-  promptStore.removePrompt(categoryId, promptId)
+const handleRemovePrompt = (categoryId: string, promptId: string, subCategoryId?: string) => {
+  promptStore.removePrompt(categoryId, promptId, subCategoryId)
 }
 
 // 重新排序已选提示词
@@ -100,8 +100,8 @@ const handleReorderPrompt = (fromIndex: number, toIndex: number) => {
 /* 大屏幕（1200px+）：三栏布局 - 撑满整个屏幕，无需页面滚动 */
 @media (min-width: 1200px) {
   .content-grid {
-    /* 左侧（提示词）：中间（参数）：右侧（结果） = 2.5 : 1 : 1.5 */
-    grid-template-columns: minmax(320px, 2.5fr) minmax(240px, 1fr) minmax(300px, 1.5fr);
+    /* 左侧（提示词）：中间（参数）：右侧（结果） = 3 : 0.8 : 1.5 */
+    grid-template-columns: minmax(400px, 3fr) minmax(200px, 0.8fr) minmax(300px, 1.5fr);
     height: 100%;
   }
 

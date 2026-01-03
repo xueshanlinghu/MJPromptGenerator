@@ -10,26 +10,26 @@
     @mouseleave="handleMouseLeave"
   >
     <div class="tag-content">
-      <span class="tag-text-cn">{{ prompt.description }}</span>
-      <span class="tag-text-en">{{ prompt.text }}</span>
+      <span class="tag-text-cn">{{ prompt.prompt_zh }}</span>
+      <span class="tag-text-en">{{ prompt.prompt_en }}</span>
     </div>
     <span v-if="isSelected" class="selected-icon">✓</span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { PromptItem } from '@/types'
 
 interface Props {
   prompt: PromptItem
   categoryId: string
+  subCategoryId?: string  // 新增：可选的子分类ID
   isSelected?: boolean
   colorIndex?: number
 }
 
 interface Emits {
-  (e: 'click', categoryId: string, promptId: string): void
+  (e: 'click', data: { categoryId: string, promptId: string, subCategoryId?: string }): void
   (e: 'preview', prompt: PromptItem, show: boolean): void
 }
 
@@ -41,7 +41,11 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Emits>()
 
 const handleClick = () => {
-  emit('click', props.categoryId, props.prompt.id)
+  emit('click', {
+    categoryId: props.categoryId,
+    promptId: props.prompt.id,
+    subCategoryId: props.subCategoryId
+  })
 }
 
 const handleMouseEnter = () => {

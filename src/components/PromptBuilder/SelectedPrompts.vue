@@ -24,7 +24,7 @@
         <span class="item-text">{{ item.text }}</span>
         <button
           class="remove-btn"
-          @click="handleRemove(item.categoryId, item.promptId)"
+          @click="handleRemove(item.categoryId, item.promptId, item.subCategoryId)"
           title="移除"
         >
           ×
@@ -43,7 +43,7 @@ interface Props {
 }
 
 interface Emits {
-  (e: 'remove', categoryId: string, promptId: string): void
+  (e: 'remove', categoryId: string, promptId: string, subCategoryId?: string): void
   (e: 'reorder', fromIndex: number, toIndex: number): void
 }
 
@@ -94,8 +94,8 @@ const handleDragEnd = () => {
   dragOverIndex.value = null
 }
 
-const handleRemove = (categoryId: string, promptId: string) => {
-  emit('remove', categoryId, promptId)
+const handleRemove = (categoryId: string, promptId: string, subCategoryId?: string) => {
+  emit('remove', categoryId, promptId, subCategoryId)
 }
 </script>
 

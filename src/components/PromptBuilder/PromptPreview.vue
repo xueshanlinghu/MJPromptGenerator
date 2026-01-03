@@ -26,8 +26,13 @@
       </div>
 
       <div class="preview-info">
-        <div class="preview-title">{{ prompt?.description }}</div>
-        <div class="preview-prompt">{{ prompt?.text }}</div>
+        <div class="preview-title">{{ prompt?.prompt_zh }}</div>
+        <div class="preview-prompt">{{ prompt?.prompt_en }}</div>
+      </div>
+
+      <!-- 额外说明（如果提供） -->
+      <div v-if="prompt?.description" class="preview-description">
+        {{ prompt.description }}
       </div>
     </div>
   </n-popover>
@@ -121,5 +126,15 @@ const handleImageError = () => {
   color: var(--text-tertiary);
   font-family: monospace;
   word-break: break-all;
+}
+
+.preview-description {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 256px;
 }
 </style>
