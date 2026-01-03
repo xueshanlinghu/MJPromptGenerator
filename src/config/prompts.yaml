@@ -33,18 +33,32 @@ categories:
       - id: high-speed
         name: 高速摄影
         prompts:
-          # 占位符 - 待后续填充
-          - id: placeholder-high-speed
+          - id: highspeed-photography
             prompt_zh: 高速摄影
-            prompt_en: high speed photography
-            description: 适用于捕捉快速运动的物体
+            prompt_en: highspeed photography
+
+          - id: slow-movement
+            prompt_zh: 慢动作
+            prompt_en: slow movement
+
+          - id: bullet-time
+            prompt_zh: 子弹时间
+            prompt_en: Bullet time
+
+          - id: slow-motion
+            prompt_zh: 慢镜头
+            prompt_en: slow motion
 
       - id: time-lapse
         name: 延时摄影
         prompts:
-          - id: placeholder-time-lapse
+          - id: time-lapse-photography
             prompt_zh: 延时摄影
-            prompt_en: time-lapse photography
+            prompt_en: Time-lapse photography
+
+          - id: long-exposure
+            prompt_zh: 长曝光
+            prompt_en: long exposure
 
       - id: time-interval
         name: 定时摄影
