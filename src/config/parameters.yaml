@@ -1,0 +1,168 @@
+# Midjourney 参数配置文件
+
+parameters:
+  # 模型版本
+  - id: version
+    name: 模型版本
+    type: select
+    param: --v
+    default: "6.1"
+    description: 选择 Midjourney 模型版本
+    options:
+      - value: "6.1"
+        label: "V6.1 (推荐)"
+      - value: "6.0"
+        label: "V6.0"
+      - value: "5.2"
+        label: "V5.2"
+      - value: "5.1"
+        label: "V5.1"
+      - value: "5"
+        label: "V5"
+      - value: "niji 6"
+        label: "Niji 6 (动漫)"
+
+  # 宽高比
+  - id: aspectRatio
+    name: 宽高比
+    type: select
+    param: --ar
+    default: "16:9"
+    description: 图片的宽高比例
+    options:
+      - value: "1:1"
+        label: "正方形 (1:1)"
+      - value: "16:9"
+        label: "横屏 (16:9)"
+      - value: "9:16"
+        label: "竖屏 (9:16)"
+      - value: "4:3"
+        label: "标准 (4:3)"
+      - value: "3:2"
+        label: "摄影 (3:2)"
+      - value: "2:3"
+        label: "竖版摄影 (2:3)"
+      - value: "21:9"
+        label: "超宽屏 (21:9)"
+
+  # 风格化程度
+  - id: stylize
+    name: 风格化程度
+    type: slider
+    param: --s
+    default: 100
+    min: 0
+    max: 1000
+    step: 50
+    description: 数值越高，AI 艺术性越强；数值越低，越贴近提示词描述
+
+  # 混乱度
+  - id: chaos
+    name: 混乱度
+    type: slider
+    param: --c
+    default: 0
+    min: 0
+    max: 100
+    step: 10
+    description: 控制生成结果的多样性和随机性
+
+  # 质量
+  - id: quality
+    name: 质量
+    type: select
+    param: --q
+    default: "1"
+    description: 渲染质量，影响生成时间
+    options:
+      - value: "0.25"
+        label: "快速 (0.25)"
+      - value: "0.5"
+        label: "标准 (0.5)"
+      - value: "1"
+        label: "高质量 (1)"
+      - value: "2"
+        label: "超高质量 (2)"
+
+  # 怪异度
+  - id: weird
+    name: 怪异度
+    type: slider
+    param: --weird
+    default: 0
+    min: 0
+    max: 3000
+    step: 100
+    description: 生成非常规、实验性的图像
+
+  # 图片权重（用于图片参考）
+  - id: imageWeight
+    name: 图片权重
+    type: slider
+    param: --iw
+    default: 1
+    min: 0
+    max: 2
+    step: 0.1
+    description: 参考图片在生成中的权重
+
+  # 风格权重
+  - id: styleWeight
+    name: 风格权重
+    type: slider
+    param: --sw
+    default: 100
+    min: 0
+    max: 1000
+    step: 50
+    description: 风格参考的强度
+
+  # 风格参考
+  - id: styleRef
+    name: 风格参考
+    type: input
+    param: --sref
+    default: ""
+    placeholder: "输入图片URL"
+    description: 风格参考图片链接
+
+  # 角色参考
+  - id: characterRef
+    name: 角色参考
+    type: input
+    param: --cref
+    default: ""
+    placeholder: "输入图片URL"
+    description: 角色参考图片链接
+
+  # 负面提示词
+  - id: no
+    name: 负面提示词
+    type: input
+    param: --no
+    default: ""
+    placeholder: "输入不想要的元素"
+    description: 指定不想在图片中出现的元素
+
+  # 平铺模式
+  - id: tile
+    name: 平铺模式
+    type: checkbox
+    param: --tile
+    default: false
+    description: 生成可平铺的图案
+
+  # 风格模式
+  - id: style
+    name: 风格模式
+    type: select
+    param: --style
+    default: ""
+    description: 特殊风格模式
+    options:
+      - value: ""
+        label: "默认"
+      - value: "raw"
+        label: "Raw (原始)"
+      - value: "original"
+        label: "Original (原创)"

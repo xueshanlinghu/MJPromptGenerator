@@ -1,0 +1,153 @@
+# Midjourney 提示词配置文件
+# 您可以在这里添加自己常用的提示词
+
+categories:
+  # 风格类别
+  - id: styles
+    name: 风格
+    icon: palette-outline
+    prompts:
+      - id: anime
+        text: anime style
+        description: 动漫风格
+        preview: styles/anime.jpg
+
+      - id: photorealistic
+        text: photorealistic, ultra detailed, 8k
+        description: 照片级真实感
+        preview: styles/photorealistic.jpg
+
+      - id: watercolor
+        text: watercolor painting
+        description: 水彩画风格
+        preview: styles/watercolor.jpg
+
+      - id: oil-painting
+        text: oil painting, impressionist
+        description: 油画风格
+        preview: styles/oil-painting.jpg
+
+      - id: digital-art
+        text: digital art, concept art
+        description: 数字艺术
+        preview: styles/digital-art.jpg
+
+      - id: minimalist
+        text: minimalist, simple, clean
+        description: 极简主义
+        # preview: styles/minimalist.jpg
+
+      - id: cyberpunk
+        text: cyberpunk, neon lights, futuristic
+        description: 赛博朋克
+        # preview: styles/cyberpunk.jpg
+
+  # 主题类别
+  - id: subjects
+    name: 主题
+    icon: cube-outline
+    prompts:
+      - id: portrait
+        text: portrait of a person
+        description: 人物肖像
+        preview: subjects/portrait.jpg
+
+      - id: landscape
+        text: beautiful landscape
+        description: 风景
+        preview: subjects/landscape.jpg
+
+      - id: architecture
+        text: modern architecture
+        description: 建筑
+        # preview: subjects/architecture.jpg
+
+      - id: abstract
+        text: abstract composition
+        description: 抽象构图
+        # preview: subjects/abstract.jpg
+
+      - id: fantasy
+        text: fantasy scene
+        description: 幻想场景
+        # preview: subjects/fantasy.jpg
+
+  # 光照类别
+  - id: lighting
+    name: 光照
+    icon: sunny-outline
+    prompts:
+      - id: golden-hour
+        text: golden hour lighting
+        description: 黄金时段光照
+        preview: lighting/golden-hour.jpg
+
+      - id: studio
+        text: studio lighting
+        description: 摄影棚光照
+        preview: lighting/studio.jpg
+
+      - id: dramatic
+        text: dramatic lighting, chiaroscuro
+        description: 戏剧化光照
+        # preview: lighting/dramatic.jpg
+
+      - id: soft
+        text: soft diffused lighting
+        description: 柔和漫射光
+        # preview: lighting/soft.jpg
+
+      - id: neon
+        text: neon lighting, vibrant colors
+        description: 霓虹灯光
+        # preview: lighting/neon.jpg
+
+  # 质量和细节
+  - id: quality
+    name: 质量
+    icon: sparkles-outline
+    prompts:
+      - id: highly-detailed
+        text: highly detailed, intricate
+        description: 高度细节化
+        # preview: quality/detailed.jpg
+
+      - id: sharp-focus
+        text: sharp focus, crisp
+        description: 清晰聚焦
+        # preview: quality/sharp.jpg
+
+      - id: cinematic
+        text: cinematic, film grain
+        description: 电影感
+        # preview: quality/cinematic.jpg
+
+      - id: professional
+        text: professional photography
+        description: 专业摄影
+        # preview: quality/professional.jpg
+
+  # 视角和构图
+  - id: perspective
+    name: 视角
+    icon: camera-outline
+    prompts:
+      - id: wide-angle
+        text: wide angle shot
+        description: 广角镜头
+        # preview: perspective/wide-angle.jpg
+
+      - id: close-up
+        text: close-up shot
+        description: 特写镜头
+        # preview: perspective/close-up.jpg
+
+      - id: aerial
+        text: aerial view, bird's eye view
+        description: 鸟瞰视角
+        # preview: perspective/aerial.jpg
+
+      - id: low-angle
+        text: low angle shot
+        description: 低角度拍摄
+        # preview: perspective/low-angle.jpg
