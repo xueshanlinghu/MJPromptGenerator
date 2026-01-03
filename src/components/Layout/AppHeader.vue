@@ -25,6 +25,7 @@ import ThemeToggle from './ThemeToggle.vue'
   padding: 20px;
   box-shadow: 0 4px 12px var(--shadow-color);
   border-bottom: 1px solid var(--border-light);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-container {
@@ -61,21 +62,6 @@ import ThemeToggle from './ThemeToggle.vue'
   gap: 12px;
 }
 
-/* 暗色主题 */
-:global(.dark) .app-header {
-  background: linear-gradient(135deg, #0c4a6e 0%, #064e3b 50%, #78350f 100%);
-  box-shadow: 0 4px 12px var(--shadow-color);
-  border-bottom-color: var(--border-color);
-}
-
-:global(.dark) .logo-title {
-  color: var(--text-primary);
-}
-
-:global(.dark) .logo-subtitle {
-  color: var(--text-secondary);
-}
-
 /* 响应式设计 */
 @media (max-width: 768px) {
   .app-header {
@@ -89,5 +75,23 @@ import ThemeToggle from './ThemeToggle.vue'
   .logo-subtitle {
     font-size: 12px;
   }
+}
+</style>
+
+<style>
+/* 暗色主题 - 非 scoped 样式以确保优先级 */
+.dark .app-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  border-bottom-color: #334155 !important;
+}
+
+.dark .logo-title {
+  color: #f1f5f9 !important;
+}
+
+.dark .logo-subtitle {
+  color: #cbd5e1 !important;
+  opacity: 0.9;
 }
 </style>
