@@ -7,25 +7,28 @@
           <div class="content-grid">
             <!-- 左侧：提示词选择区 -->
             <section class="left-panel panel">
-              <n-card title="🎨 提示词库" size="small" :bordered="false">
-                <p>提示词分类将在这里显示</p>
+              <n-card size="small" :bordered="false" class="prompt-panel-card">
+                <PromptPanel />
               </n-card>
             </section>
 
             <!-- 中间：参数设置区 -->
             <section class="middle-panel panel">
-              <n-card title="⚙️ 参数设置" size="small" :bordered="false">
-                <p>Midjourney 参数设置将在这里显示</p>
+              <n-card size="small" :bordered="false" class="parameter-panel-card">
+                <ParameterPanel />
               </n-card>
             </section>
 
             <!-- 右侧：结果预览区 -->
             <section class="right-panel panel">
               <n-card title="✨ 已选提示词" size="small" :bordered="false">
-                <p>已选择的提示词将在这里显示</p>
+                <SelectedPrompts
+                  :selected-prompts="selectedPrompts"
+                  @remove="handleRemovePrompt"
+                />
               </n-card>
               <n-card title="🎯 最终提示词" size="small" :bordered="false" class="result-card">
-                <p>生成的完整提示词将在这里显示</p>
+                <FinalPrompt />
               </n-card>
             </section>
           </div>
@@ -39,12 +42,26 @@
 <script setup lang="ts">
 import { NConfigProvider, NMessageProvider, NCard } from 'naive-ui'
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useThemeStore } from './stores/themeStore'
+import { usePromptStore } from './stores/promptStore'
 import AppHeader from './components/Layout/AppHeader.vue'
 import AppFooter from './components/Layout/AppFooter.vue'
+import PromptPanel from './components/PromptBuilder/PromptPanel.vue'
+import SelectedPrompts from './components/PromptBuilder/SelectedPrompts.vue'
+import ParameterPanel from './components/ParameterPanel/ParameterPanel.vue'
+import FinalPrompt from './components/ResultPanel/FinalPrompt.vue'
 
 const themeStore = useThemeStore()
 const theme = computed(() => themeStore.naiveTheme)
+
+const promptStore = usePromptStore()
+const { selectedPrompts } = storeToRefs(promptStore)
+
+// 移除已选提示词
+const handleRemovePrompt = (categoryId: string, promptId: string) => {
+  promptStore.removePrompt(categoryId, promptId)
+}
 </script>
 
 <style scoped>
@@ -133,6 +150,18 @@ const theme = computed(() => themeStore.naiveTheme)
   border-radius: 12px;
   box-shadow: 0 2px 8px var(--shadow-color);
   border: 1px solid var(--border-light);
+}
+
+.prompt-panel-card :deep(.n-card__content) {
+  padding: 16px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parameter-panel-card :deep(.n-card__content) {
+  padding: 16px;
+  height: 100%;
+  overflow: hidden;
 }
 
 :deep(.n-card:hover) {

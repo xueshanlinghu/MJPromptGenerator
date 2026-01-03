@@ -105,6 +105,13 @@ export const useParameterStore = defineStore('parameter', {
     },
 
     /**
+     * 重置所有参数到默认值（别名）
+     */
+    resetToDefaults() {
+      this.resetAll()
+    },
+
+    /**
      * 从 localStorage 加载保存的参数值
      */
     loadFromLocalStorage() {

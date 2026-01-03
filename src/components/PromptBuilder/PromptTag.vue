@@ -9,7 +9,10 @@
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <span class="tag-text">{{ prompt.description }}</span>
+    <div class="tag-content">
+      <span class="tag-text-cn">{{ prompt.description }}</span>
+      <span class="tag-text-en">{{ prompt.text }}</span>
+    </div>
     <span v-if="isSelected" class="selected-icon">✓</span>
   </div>
 </template>
@@ -54,7 +57,7 @@ const handleMouseLeave = () => {
 .prompt-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding: 8px 14px;
   border-radius: 6px;
   font-size: 13px;
@@ -70,8 +73,22 @@ const handleMouseLeave = () => {
   box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
-.tag-text {
-  line-height: 1.2;
+.tag-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.3;
+}
+
+.tag-text-cn {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.tag-text-en {
+  font-size: 11px;
+  opacity: 0.8;
+  font-family: monospace;
 }
 
 .selected-icon {
