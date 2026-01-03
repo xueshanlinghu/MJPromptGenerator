@@ -7,11 +7,20 @@
 
     <div v-else class="selected-list">
       <div
-        v-for="(item, index) in selectedPrompts"
+        v-for="(item, index) in sortedPrompts"
         :key="`${item.categoryId}-${item.promptId}`"
         class="selected-item"
-        :class="`color-${index % 4}`"
+        :class="[
+          `color-${index % 4}`,
+          { dragging: draggingIndex === index, 'drag-over': dragOverIndex === index }
+        ]"
+        draggable="true"
+        @dragstart="handleDragStart(index, $event)"
+        @dragover.prevent="handleDragOver(index, $event)"
+        @drop="handleDrop(index, $event)"
+        @dragend="handleDragEnd"
       >
+        <span class="drag-handle" title="拖动排序">⋮⋮</span>
         <span class="item-text">{{ item.text }}</span>
         <button
           class="remove-btn"
@@ -26,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import type { SelectedPrompt } from '@/types'
 
 interface Props {
@@ -34,10 +44,55 @@ interface Props {
 
 interface Emits {
   (e: 'remove', categoryId: string, promptId: string): void
+  (e: 'reorder', fromIndex: number, toIndex: number): void
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
+
+const draggingIndex = ref<number | null>(null)
+const dragOverIndex = ref<number | null>(null)
+
+// 按时间戳排序的提示词列表
+const sortedPrompts = computed(() => {
+  return [...props.selectedPrompts].sort((a, b) => a.timestamp - b.timestamp)
+})
+
+const handleDragStart = (index: number, event: DragEvent) => {
+  draggingIndex.value = index
+  if (event.dataTransfer) {
+    event.dataTransfer.effectAllowed = 'move'
+    event.dataTransfer.setData('text/plain', index.toString())
+  }
+}
+
+const handleDragOver = (index: number, event: DragEvent) => {
+  if (draggingIndex.value === null || draggingIndex.value === index) {
+    return
+  }
+  dragOverIndex.value = index
+  if (event.dataTransfer) {
+    event.dataTransfer.dropEffect = 'move'
+  }
+}
+
+const handleDrop = (toIndex: number, event: DragEvent) => {
+  event.preventDefault()
+
+  if (draggingIndex.value === null || draggingIndex.value === toIndex) {
+    return
+  }
+
+  emit('reorder', draggingIndex.value, toIndex)
+
+  draggingIndex.value = null
+  dragOverIndex.value = null
+}
+
+const handleDragEnd = () => {
+  draggingIndex.value = null
+  dragOverIndex.value = null
+}
 
 const handleRemove = (categoryId: string, promptId: string) => {
   emit('remove', categoryId, promptId)
@@ -78,11 +133,48 @@ const handleRemove = (categoryId: string, promptId: string) => {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 8px 6px 12px;
+  padding: 6px 8px 6px 8px;
   border-radius: 6px;
   font-size: 13px;
   border: 1px solid currentColor;
   transition: all 0.2s ease;
+  cursor: move;
+  user-select: none;
+}
+
+.selected-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 拖拽状态 */
+.selected-item.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+  cursor: grabbing;
+}
+
+.selected-item.drag-over {
+  border-style: dashed;
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.drag-handle {
+  font-size: 14px;
+  color: currentColor;
+  opacity: 0.6;
+  cursor: grab;
+  line-height: 1;
+  user-select: none;
+}
+
+.selected-item:hover .drag-handle {
+  opacity: 1;
+}
+
+.selected-item.dragging .drag-handle {
+  cursor: grabbing;
 }
 
 .item-text {

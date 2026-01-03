@@ -140,14 +140,21 @@ export const usePromptStore = defineStore('prompt', {
      * 调整提示词顺序
      */
     reorderPrompt(fromIndex: number, toIndex: number) {
-      const sorted = this.selectedPrompts.sort((a, b) => a.timestamp - b.timestamp)
+      // 先按时间戳排序获得当前顺序
+      const sorted = [...this.selectedPrompts].sort((a, b) => a.timestamp - b.timestamp)
+
+      // 移动元素
       const [removed] = sorted.splice(fromIndex, 1)
       sorted.splice(toIndex, 0, removed)
 
       // 更新时间戳以保持新顺序
+      const baseTime = Date.now()
       sorted.forEach((prompt, index) => {
-        prompt.timestamp = Date.now() + index
+        prompt.timestamp = baseTime + index
       })
+
+      // 重新赋值以触发响应式更新
+      this.selectedPrompts = sorted
     }
   }
 })

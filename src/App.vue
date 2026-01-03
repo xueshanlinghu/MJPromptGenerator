@@ -25,6 +25,7 @@
                 <SelectedPrompts
                   :selected-prompts="selectedPrompts"
                   @remove="handleRemovePrompt"
+                  @reorder="handleReorderPrompt"
                 />
               </n-card>
               <n-card title="🎯 最终提示词" size="small" :bordered="false" class="result-card">
@@ -62,35 +63,51 @@ const { selectedPrompts } = storeToRefs(promptStore)
 const handleRemovePrompt = (categoryId: string, promptId: string) => {
   promptStore.removePrompt(categoryId, promptId)
 }
+
+// 重新排序已选提示词
+const handleReorderPrompt = (fromIndex: number, toIndex: number) => {
+  promptStore.reorderPrompt(fromIndex, toIndex)
+}
 </script>
 
 <style scoped>
 .app-container {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: var(--bg-secondary);
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
   width: 100%;
   padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 三栏网格布局 */
 .content-grid {
   display: grid;
   gap: 20px;
-  min-height: calc(100vh - 200px);
   width: 100%;
+  flex: 1;
+  overflow: hidden;
 }
 
-/* 大屏幕（1200px+）：三栏布局 - 撑满整个屏幕 */
+/* 大屏幕（1200px+）：三栏布局 - 撑满整个屏幕，无需页面滚动 */
 @media (min-width: 1200px) {
   .content-grid {
     /* 左侧（提示词）：中间（参数）：右侧（结果） = 2.5 : 1 : 1.5 */
     grid-template-columns: minmax(320px, 2.5fr) minmax(240px, 1fr) minmax(300px, 1.5fr);
+    height: 100%;
+  }
+
+  .panel {
+    height: 100%;
+    overflow: hidden;
   }
 }
 
@@ -141,27 +158,69 @@ const handleRemovePrompt = (categoryId: string, promptId: string) => {
   gap: 16px;
 }
 
-.result-card {
-  margin-top: auto;
-}
-
 /* Naive UI Card 自定义样式 */
 :deep(.n-card) {
   border-radius: 12px;
   box-shadow: 0 2px 8px var(--shadow-color);
   border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 大屏幕：左侧提示词面板 - 填充满整个高度 */
+@media (min-width: 1200px) {
+  .left-panel .n-card {
+    height: 100%;
+  }
+
+  .left-panel .prompt-panel-card :deep(.n-card__content) {
+    padding: 16px;
+    overflow-y: auto;
+    max-height: calc(100vh - 180px);
+  }
+}
+
+/* 大屏幕：中间参数面板 - 填充满整个高度 */
+@media (min-width: 1200px) {
+  .middle-panel .n-card {
+    height: 100%;
+  }
+
+  .middle-panel .parameter-panel-card :deep(.n-card__content) {
+    padding: 16px;
+    overflow-y: auto;
+    max-height: calc(100vh - 180px);
+  }
+}
+
+/* 大屏幕：右侧面板 - 上下分布 */
+@media (min-width: 1200px) {
+  .right-panel {
+    height: 100%;
+  }
+
+  .right-panel > .n-card:first-child {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .right-panel > .n-card:first-child :deep(.n-card__content) {
+    padding: 16px;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  .right-panel > .n-card:last-child {
+    flex-shrink: 0;
+  }
 }
 
 .prompt-panel-card :deep(.n-card__content) {
   padding: 16px;
-  height: 100%;
-  overflow: hidden;
 }
 
 .parameter-panel-card :deep(.n-card__content) {
   padding: 16px;
-  height: 100%;
-  overflow: hidden;
 }
 
 :deep(.n-card:hover) {

@@ -6,11 +6,13 @@ parameters:
     name: 模型版本
     type: select
     param: --v
-    default: "6.1"
+    default: "7"
     description: 选择 Midjourney 模型版本
     options:
+      - value: "7"
+        label: "V7 (推荐)"
       - value: "6.1"
-        label: "V6.1 (推荐)"
+        label: "V6.1"
       - value: "6.0"
         label: "V6.0"
       - value: "5.2"
@@ -19,7 +21,7 @@ parameters:
         label: "V5.1"
       - value: "5"
         label: "V5"
-      - value: "niji 6"
+      - value: "niji-6"
         label: "Niji 6 (动漫)"
 
   # 宽高比

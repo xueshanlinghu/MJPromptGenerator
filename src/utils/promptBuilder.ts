@@ -17,9 +17,17 @@ export class PromptBuilder {
     // 2. 构建参数字符串
     const params: string[] = []
 
-    // 版本
+    // 版本（特殊处理 Niji 模型）
     if (parameters.version) {
-      params.push(`--v ${parameters.version}`)
+      // Niji 模型使用 --niji 参数
+      if (parameters.version.startsWith('niji')) {
+        // niji-6 -> --niji 6
+        const nijiVersion = parameters.version.replace('niji-', '')
+        params.push(`--niji ${nijiVersion}`)
+      } else {
+        // 普通版本使用 --v 参数
+        params.push(`--v ${parameters.version}`)
+      }
     }
 
     // 宽高比
