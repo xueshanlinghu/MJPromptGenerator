@@ -63,9 +63,13 @@ categories:
       - id: time-interval
         name: 定时摄影
         prompts:
-          - id: placeholder-time-interval
-            prompt_zh: 定时摄影
-            prompt_en: interval photography
+          - id: chrono-photography
+            prompt_zh: 连续摄影
+            prompt_en: Chrono photography
+
+          - id: stroboscopic
+            prompt_zh: 频闪效应
+            prompt_en: Stroboscopic
 
       - id: light-painting
         name: 光涂鸦
