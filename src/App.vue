@@ -46,7 +46,6 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useThemeStore } from './stores/themeStore'
 import { usePromptStore } from './stores/promptStore'
-import { useParameterStore } from './stores/parameterStore'
 import AppHeader from './components/Layout/AppHeader.vue'
 import AppFooter from './components/Layout/AppFooter.vue'
 import PromptPanel from './components/PromptBuilder/PromptPanel.vue'
@@ -59,12 +58,6 @@ const theme = computed(() => themeStore.naiveTheme)
 
 const promptStore = usePromptStore()
 const { selectedPrompts } = storeToRefs(promptStore)
-
-// 初始化热更新监听（开发环境）
-promptStore.init()
-
-const parameterStore = useParameterStore()
-parameterStore.init()
 
 // 移除已选提示词
 const handleRemovePrompt = (categoryId: string, promptId: string, subCategoryId?: string) => {

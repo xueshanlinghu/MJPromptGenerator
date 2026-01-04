@@ -68,19 +68,6 @@ export const useParameterStore = defineStore('parameter', {
     },
 
     /**
-     * 初始化（设置热更新监听）
-     */
-    init() {
-      // 开发环境下监听配置热更新
-      if (import.meta.env.DEV) {
-        window.addEventListener('config:parameters:updated', () => {
-          console.log('🔄 Reloading parameters config...')
-          this.loadConfig()
-        })
-      }
-    },
-
-    /**
      * 初始化参数值为默认值
      */
     initializeValues() {
