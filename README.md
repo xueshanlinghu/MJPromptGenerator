@@ -51,6 +51,41 @@ npm run build
 npm run preview
 ```
 
+## 部署到 GitHub Pages
+
+本项目已配置 GitHub Actions 自动部署，推送到 `master` 分支时会自动构建并部署到 GitHub Pages。
+
+### 配置步骤
+
+1. **启用 GitHub Pages**
+   - 进入仓库的 `Settings` → `Pages`
+   - 在 `Build and deployment` 下的 `Source` 选择 `GitHub Actions`
+
+2. **推送代码**
+   ```bash
+   git push origin master
+   ```
+
+3. **查看部署状态**
+   - 进入仓库的 `Actions` 标签页
+   - 查看部署工作流的运行状态
+   - 部署成功后，访问 `https://<username>.github.io/MJPromptGenerator/`
+
+### 自定义域名（可选）
+
+如果使用自定义域名，需要修改 `vite.config.ts` 中的 `base` 配置：
+
+```typescript
+base: process.env.NODE_ENV === 'production' ? '/' : '/',
+```
+
+### 手动部署
+
+也可以手动触发部署：
+- 进入仓库的 `Actions` 标签页
+- 选择 `Deploy to GitHub Pages` 工作流
+- 点击 `Run workflow` 按钮
+
 ## 项目结构
 
 ```
