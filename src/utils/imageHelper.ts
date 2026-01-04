@@ -8,10 +8,11 @@
  * @returns 完整的图片 URL
  */
 export function getPreviewImagePath(previewPath?: string): string {
+  const base = import.meta.env.BASE_URL
   if (!previewPath) {
-    return '/preview-images/placeholder.svg'
+    return `${base}preview-images/placeholder.svg`
   }
-  return `/preview-images/${previewPath}`
+  return `${base}preview-images/${previewPath}`
 }
 
 /**
