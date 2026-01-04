@@ -40,6 +40,8 @@ parameters:
         label: "竖屏 (9:16)"
       - value: "4:3"
         label: "标准 (4:3)"
+      - value: "3:4"
+        label: "竖版标准 (3:4)"
       - value: "3:2"
         label: "摄影 (3:2)"
       - value: "2:3"
