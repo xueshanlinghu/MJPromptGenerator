@@ -74,9 +74,17 @@ categories:
       - id: light-painting
         name: 光涂鸦
         prompts:
-          - id: placeholder-light-painting
+          - id: light-painting
+            prompt_zh: 光绘
+            prompt_en: Light painting
+
+          - id: light-graffiti
             prompt_zh: 光涂鸦
-            prompt_en: light painting
+            prompt_en: Light graffiti
+
+          - id: light-drawing
+            prompt_zh: 光绘画
+            prompt_en: Light drawing
 
   # 景深和光圈（一级分类，无二级）
   - id: depth-aperture
@@ -85,10 +93,25 @@ categories:
     special:
       positionTag: camera
     prompts:
-      # 占位符 - 待后续填充
-      - id: placeholder-dof
-        prompt_zh: 景深效果
-        prompt_en: depth of field
+      - id: dof
+        prompt_zh: 景深
+        prompt_en: DOF
+
+      - id: depth-of-field
+        prompt_zh: 景深
+        prompt_en: Depth of field
+
+      - id: bokeh
+        prompt_zh: 散景
+        prompt_en: bokeh
+
+      - id: bokehlicious
+        prompt_zh: 梦幻散景
+        prompt_en: Bokehlicious
+
+      - id: tilt-shift
+        prompt_zh: 移轴摄影
+        prompt_en: Tilt-shift photography
 
   # 镜头的长短和位置
   - id: lens-position
@@ -100,44 +123,220 @@ categories:
       - id: lens-position-sub
         name: 镜头位置
         prompts:
-          - id: placeholder-lens-position
-            prompt_zh: 镜头位置
-            prompt_en: camera position
+          - id: astrography
+            prompt_zh: 天文摄影
+            prompt_en: Astrography
+
+          - id: astro-photography
+            prompt_zh: 天体摄影
+            prompt_en: Astro photography
+
+          - id: shot-by-nasa
+            prompt_zh: NASA拍摄
+            prompt_en: Shot by NASA
+
+          - id: shot-by-hubble
+            prompt_zh: 哈勃望远镜拍摄
+            prompt_en: Shot by hubble space telescope
+
+          - id: near-orbit-shot
+            prompt_zh: 近轨道拍摄
+            prompt_en: near orbit shot
+
+          - id: macrography
+            prompt_zh: 微距摄影
+            prompt_en: Macrography
+
+          - id: micro-photography
+            prompt_zh: 显微摄影
+            prompt_en: Micro photography
+
+          - id: macroview
+            prompt_zh: 微距视角
+            prompt_en: Macroview
 
       - id: shot-size
         name: 景别
         prompts:
-          - id: placeholder-shot-size
-            prompt_zh: 景别
-            prompt_en: shot size
+          - id: extreme-long-shot
+            prompt_zh: 极远景镜头
+            prompt_en: extreme long shot
+
+          - id: telephoto-shots
+            prompt_zh: 远景镜头
+            prompt_en: Telephoto shots
+
+          - id: long-shot
+            prompt_zh: 远景镜头
+            prompt_en: long shot
+
+          - id: medium-shot
+            prompt_zh: 中景镜头
+            prompt_en: medium shot
+
+          - id: close-up
+            prompt_zh: 特写镜头
+            prompt_en: close-up
+
+          - id: extreme-close-up
+            prompt_zh: 极特写镜头
+            prompt_en: extreme close-up
 
       - id: shot-angle
         name: 景别-角度
         prompts:
-          - id: placeholder-shot-angle
-            prompt_zh: 拍摄角度
-            prompt_en: camera angle
+          - id: topview
+            prompt_zh: 顶视图
+            prompt_en: topview
+
+          - id: high-angle-shot
+            prompt_zh: 高角度镜头
+            prompt_en: high angle shot
+
+          - id: low-angle-shot
+            prompt_zh: 低角度镜头
+            prompt_en: low angle shot
+
+          - id: buttom-up-view
+            prompt_zh: 仰视角度
+            prompt_en: buttom(up)view
 
       - id: shot-portrait
         name: 景别-人物
         prompts:
-          - id: placeholder-shot-portrait
-            prompt_zh: 人物景别
-            prompt_en: portrait shot
+          - id: full-body-shot
+            prompt_zh: 全身照
+            prompt_en: Full-body shot
+
+          - id: half-body-shot
+            prompt_zh: 半身照
+            prompt_en: Half-body shot
+
+          - id: waistup-shot
+            prompt_zh: 腰部特写
+            prompt_en: waistup shot
+
+          - id: side-shot
+            prompt_zh: 侧面照
+            prompt_en: side shot
+
+          - id: portrait
+            prompt_zh: 肖像照
+            prompt_en: Portrait
+
+          - id: back-shot
+            prompt_zh: 背影照
+            prompt_en: Back shot
+
+          - id: back-neck-shot
+            prompt_zh: 颈部特写
+            prompt_en: Back neck shot
+
+          - id: collarbone-shot
+            prompt_zh: 锁骨特写
+            prompt_en: Collarbone shot
+
+          - id: hand-shot
+            prompt_zh: 手部特写
+            prompt_en: Hand shot
 
       - id: shot-special
         name: 景别-特殊
         prompts:
-          - id: placeholder-shot-special
-            prompt_zh: 特殊景别
-            prompt_en: special shot
+          - id: wide-angle
+            prompt_zh: 广角
+            prompt_en: Wide angle
+
+          - id: ultra-wide-angle
+            prompt_zh: 超广角
+            prompt_en: Ultra-wide angle
+
+          - id: panorama
+            prompt_zh: 全景
+            prompt_en: Panorama
+
+          - id: 360-panorama
+            prompt_zh: 360全景
+            prompt_en: 360 panorama
+
+          - id: fish-eye-lens
+            prompt_zh: 鱼眼镜头
+            prompt_en: Fish eye lens
+
+          - id: aerial-view
+            prompt_zh: 俯瞰视角
+            prompt_en: Aerial view
+
+          - id: over-shoulder-shot
+            prompt_zh: 过肩镜头
+            prompt_en: over shoulder shot
+
+          - id: first-person-view
+            prompt_zh: 第一人称视角
+            prompt_en: First-person view
+
+          - id: third-person-view
+            prompt_zh: 第三人称视角
+            prompt_en: Third-person view
 
       - id: equipment-film
         name: 景别-设备、胶片
         prompts:
-          - id: placeholder-equipment
-            prompt_zh: 胶片相机
-            prompt_en: film camera
+          - id: dslr
+            prompt_zh: 数码单反
+            prompt_en: DSLR
+
+          - id: nikon-z7
+            prompt_zh: 尼康Z7
+            prompt_en: NikonZ7/Z7II
+
+          - id: canon-eos-r5
+            prompt_zh: 佳能EOS R5
+            prompt_en: CanonEOSR5
+
+          - id: fujifilm-xt4
+            prompt_zh: 富士X-T4
+            prompt_en: FujifilmX-T4-APS-C
+
+          - id: sony-alpha1
+            prompt_zh: 索尼Alpha 1
+            prompt_en: SonyAlpha1
+
+          - id: leica-sl2
+            prompt_zh: 徕卡SL2
+            prompt_en: LeicaSL2
+
+          - id: panasonic-lumix-s1r
+            prompt_zh: 松下LUMIX S1R
+            prompt_en: PanasonicLUMIXS1R
+
+          - id: hasselblad-h2d
+            prompt_zh: 哈苏H2D
+            prompt_en: HasselbladH2D
+
+          - id: gopro
+            prompt_zh: GoPro运动相机
+            prompt_en: GoPro
+
+          - id: dji
+            prompt_zh: 大疆无人机
+            prompt_en: DJI
+
+          - id: cinestill-50
+            prompt_zh: Cinestill 50胶片
+            prompt_en: Cinestill 50 film
+
+          - id: kodak-trix-400
+            prompt_zh: 柯达Tri-X 400胶片
+            prompt_en: Kodak Tri-X400 film
+
+          - id: kodak-fujicolor-c200
+            prompt_zh: 柯达富士C200
+            prompt_en: Kodak Fujicolor C200
+
+          - id: lomography-color100
+            prompt_zh: Lomo Color 100
+            prompt_en: Lomography Color100
 
   # 光线控制
   - id: lighting
@@ -149,37 +348,284 @@ categories:
       - id: light-tone
         name: 光线-影调
         prompts:
-          - id: placeholder-light-tone
-            prompt_zh: 光线影调
-            prompt_en: lighting tone
+          - id: rembrandt-lighting
+            prompt_zh: 伦勃朗光
+            prompt_en: Rembrandt lighting
+
+          - id: split-lighting
+            prompt_zh: 半面光（分割光）
+            prompt_en: split lighting
+
+          - id: clamshell-lighting
+            prompt_zh: 贝壳夹光
+            prompt_en: clamshell lighting
+
+          - id: butterfly-lighting
+            prompt_zh: 蝴蝶光
+            prompt_en: butterfly lighting
+
+          - id: paramount-lighting
+            prompt_zh: 派拉蒙光
+            prompt_en: Paramount Lighting
+
+          - id: loop-lighting
+            prompt_zh: 环形光
+            prompt_en: loop lighting
+
+          - id: flat-lighting
+            prompt_zh: 泛光（无影光）
+            prompt_en: flat lighting
 
       - id: light-position
         name: 光线-位置
         prompts:
-          - id: placeholder-light-position
-            prompt_zh: 光线方向
-            prompt_en: light direction
+          - id: top-lighting
+            prompt_zh: 顶光
+            prompt_en: Top lighting
+
+          - id: stage-lighting
+            prompt_zh: 舞台光
+            prompt_en: Stage lighting
+
+          - id: back-lighting
+            prompt_zh: 背光
+            prompt_en: Back lighting
+
+          - id: rim-lighting
+            prompt_zh: 轮廓光
+            prompt_en: Rim lighting
+
+          - id: bottom-lighting
+            prompt_zh: 底光
+            prompt_en: Bottom lighting
+
+          - id: side-lighting
+            prompt_zh: 侧光
+            prompt_en: Side lighting
 
       - id: light-intensity
         name: 光线-光度
         prompts:
-          - id: placeholder-light-intensity
-            prompt_zh: 光线强度
-            prompt_en: light intensity
+          - id: hard-lighting
+            prompt_zh: 硬光
+            prompt_en: Hard lighting
+
+          - id: soft-lighting
+            prompt_zh: 柔光
+            prompt_en: Soft lighting
+
+          - id: board-lighting
+            prompt_zh: 宽位光
+            prompt_en: board lighting
+
+          - id: short-lighting
+            prompt_zh: 窄位光
+            prompt_en: short lighting
+
+          - id: highkey-lighting
+            prompt_zh: 高调光
+            prompt_en: Highkey lighting
+
+          - id: lowkey-lighting
+            prompt_zh: 低调光
+            prompt_en: Lowkey lighting
 
       - id: light-description
         name: 光线-通用描述
         prompts:
-          - id: placeholder-light-general
-            prompt_zh: 光照设置
-            prompt_en: lighting setup
+          - id: cinematic-lighting
+            prompt_zh: 影视级灯光
+            prompt_en: cinematic lighting
+
+          - id: studio-lighting
+            prompt_zh: 摄影棚灯光
+            prompt_en: Studio lighting
+
+          - id: natural-light
+            prompt_zh: 自然光
+            prompt_en: Natural light
+
+          - id: sunlight
+            prompt_zh: 阳光
+            prompt_en: Sunlight
+
+          - id: spotlight
+            prompt_zh: 聚光灯
+            prompt_en: Spotlight
+
+          - id: glare
+            prompt_zh: 耀光
+            prompt_en: Glare
+
+      - id: light-color
+        name: 光线-色彩
+        prompts:
+          - id: neon-lighting
+            prompt_zh: 霓虹灯光
+            prompt_en: Neon lighting
+
+          - id: red-light
+            prompt_zh: 红光
+            prompt_en: red light
+
+          - id: blue-light
+            prompt_zh: 蓝光
+            prompt_en: blue light
+
+          - id: green-light
+            prompt_zh: 绿光
+            prompt_en: green light
+
+          - id: yellow-light
+            prompt_zh: 黄光
+            prompt_en: yellow light
+
+          - id: orange-light
+            prompt_zh: 橙光
+            prompt_en: orange light
+
+          - id: purple-light
+            prompt_zh: 紫光
+            prompt_en: purple light
+
+          - id: pink-light
+            prompt_zh: 粉光
+            prompt_en: pink light
+
+          - id: white-light
+            prompt_zh: 白光
+            prompt_en: white light
+
+          - id: warm-light
+            prompt_zh: 暖光
+            prompt_en: warm light
+
+          - id: cool-light
+            prompt_zh: 冷光
+            prompt_en: cool light
+
+          - id: golden-light
+            prompt_zh: 金光
+            prompt_en: golden light
+
+          - id: silver-light
+            prompt_zh: 银光
+            prompt_en: silver light
+
+          - id: amber-light
+            prompt_zh: 琥珀光
+            prompt_en: amber light
+
+          - id: cyan-light
+            prompt_zh: 青光
+            prompt_en: cyan light
+
+          - id: magenta-light
+            prompt_zh: 品红光
+            prompt_en: magenta light
+
+          - id: violet-light
+            prompt_zh: 紫罗兰光
+            prompt_en: violet light
+
+          - id: colorful-light
+            prompt_zh: 彩色光
+            prompt_en: colorful light
 
       - id: light-adjectives
         name: 光的形容词
         prompts:
-          - id: placeholder-light-adj
-            prompt_zh: 戏剧性光照
-            prompt_en: dramatic lighting
+          - id: coruscating
+            prompt_zh: 闪烁的
+            prompt_en: Coruscating
+
+          - id: bright
+            prompt_zh: 明亮的
+            prompt_en: bright
+
+          - id: flashing
+            prompt_zh: 闪烁的
+            prompt_en: flashing
+
+          - id: sparkling
+            prompt_zh: 闪闪发光的
+            prompt_en: sparkling
+
+          - id: dappled
+            prompt_zh: 斑驳的
+            prompt_en: Dappled
+
+          - id: glossy
+            prompt_zh: 光滑的
+            prompt_en: Glossy
+
+          - id: gleaming
+            prompt_zh: 闪耀的
+            prompt_en: Gleaming
+
+          - id: shining
+            prompt_zh: 发光的
+            prompt_en: shining
+
+          - id: radiant
+            prompt_zh: 辐射的
+            prompt_en: radiant
+
+          - id: glistening
+            prompt_zh: 闪耀的
+            prompt_en: Glistening
+
+          - id: lustrous
+            prompt_zh: 有光泽的
+            prompt_en: lustrous
+
+          - id: lucid
+            prompt_zh: 清澈的
+            prompt_en: Lucid
+
+          - id: resplendent
+            prompt_zh: 辉煌的
+            prompt_en: Resplendent
+
+          - id: shimmering
+            prompt_zh: 闪烁的
+            prompt_en: Shimmering
+
+          - id: spectral
+            prompt_zh: 光谱的
+            prompt_en: Spectral
+
+          - id: ablaze
+            prompt_zh: 着火的
+            prompt_en: Ablaze
+
+          - id: aglow
+            prompt_zh: 发光的
+            prompt_en: Aglow
+
+          - id: beaming
+            prompt_zh: 欣喜的
+            prompt_en: Beaming
+
+          - id: blazing
+            prompt_zh: 熊熊燃烧的
+            prompt_en: Blazing
+
+          - id: dazzling
+            prompt_zh: 眼花缭乱的
+            prompt_en: Dazzling
+
+          - id: effulgent
+            prompt_zh: 光辉灿烂的
+            prompt_en: Effulgent
+
+          - id: twinkling
+            prompt_zh: 闪烁的
+            prompt_en: Twinkling
+
+          - id: splendor
+            prompt_zh: 华丽的
+            prompt_en: splendor
 
   # 艺术家/摄影师（特殊分类：建议单选）- 放在最后
   - id: artists
@@ -193,44 +639,111 @@ categories:
       - id: surreal
         name: 超现实
         prompts:
-          # 占位符 - 待后续填充具体艺术家
-          - id: placeholder-surreal
-            prompt_zh: 超现实风格
-            prompt_en: surreal style
+          - id: sandy-skoglund
+            prompt_zh: 桑迪·斯科格伦
+            prompt_en: Sandy Skoglund
+
+          - id: david-lachapelle
+            prompt_zh: 大卫·拉切贝尔
+            prompt_en: David LaChapelle
 
       - id: vintage-surreal
         name: 复古超现实
         prompts:
-          - id: placeholder-vintage-surreal
-            prompt_zh: 复古超现实风格
-            prompt_en: vintage surreal style
+          - id: geof-kern
+            prompt_zh: 杰夫·克恩
+            prompt_en: Geof Kern
+
+          - id: angus-mcbean
+            prompt_zh: 安格斯·麦克比恩
+            prompt_en: Angus McBean
+
+          - id: ralph-eugene-meatyard
+            prompt_zh: 拉尔夫·尤金·米亚德
+            prompt_en: Ralph Eugene Meatyard
 
       - id: minimalist
         name: 极简
         prompts:
-          - id: placeholder-minimalist
-            prompt_zh: 极简风格
-            prompt_en: minimalist style
+          - id: chema-madoz
+            prompt_zh: 查马·马多斯
+            prompt_en: Chema Madoz
+
+          - id: akos-major
+            prompt_zh: 阿克斯·梅吉
+            prompt_en: akos major
+
+          - id: scarlett-hooft-graafland
+            prompt_zh: 斯嘉丽·霍夫特·格拉夫兰
+            prompt_en: Scarlett Hooft Graafland
+
+          - id: erik-madigan-heck
+            prompt_zh: 埃里克·马迪根·赫克
+            prompt_en: Erik Madigan Heck
+
+          - id: miles-aldridge
+            prompt_zh: 迈尔斯·奥尔德里奇
+            prompt_en: Miles Aldridge
+
+          - id: nick-knight
+            prompt_zh: 尼克·奈特
+            prompt_en: Nick Knight
+
+          - id: annie-leibovitz
+            prompt_zh: 安妮·莱博维茨
+            prompt_en: Annie Leibovitz
 
       - id: landscape-artist
         name: 风景
         prompts:
-          - id: placeholder-landscape
-            prompt_zh: 风景摄影风格
-            prompt_en: landscape photography style
+          - id: marcin-sobas
+            prompt_zh: 马辛·索巴斯
+            prompt_en: Marcin Sobas
+
+          - id: martin-rak
+            prompt_zh: 马丁·瑞克
+            prompt_en: Martin Rak
+
+          - id: sebastiao-salgado
+            prompt_zh: 塞巴斯蒂昂·萨尔加多
+            prompt_en: Sebastião Salgado
 
       - id: nightsky
         name: 夜空
         prompts:
-          - id: placeholder-nightsky
-            prompt_zh: 天文摄影风格
-            prompt_en: astrophotography style
+          - id: michael-shainblum
+            prompt_zh: 迈克尔·沙布伦
+            prompt_en: Michael Shainblum
+
+          - id: mikko-lagerstedt
+            prompt_zh: 米科·拉格斯泰特
+            prompt_en: Mikko Lagerstedt
 
       - id: other-styles
         name: 其他特色
         prompts:
-          - id: placeholder-other
-            prompt_zh: 独特摄影风格
-            prompt_en: unique photography style
+          - id: misha-gordin
+            prompt_zh: 米沙·格尔丁（暗黑）
+            prompt_en: Misha Gordin
+
+          - id: robert-capa
+            prompt_zh: 罗伯特·卡帕（战地）
+            prompt_en: Robert Capa
+
+          - id: zhang-kechun
+            prompt_zh: 张克纯（中国农村）
+            prompt_en: Zhang Kechun
+
+          - id: ren-hang
+            prompt_zh: 任航
+            prompt_en: Ren hang
+
+          - id: zhang-jingna
+            prompt_zh: 张晶娜
+            prompt_en: Zhang jingna
+
+          - id: weegee
+            prompt_zh: 维基
+            prompt_en: Weegee
 
 
