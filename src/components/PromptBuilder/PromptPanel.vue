@@ -12,7 +12,7 @@
         <n-button size="small" @click="handleRetry">重试</n-button>
       </div>
 
-      <div v-else class="tabs-container">
+      <div v-else ref="tabsContainerRef" class="tabs-container">
         <!-- Tab页结构：主体环境 + 各个一级分类 -->
         <n-tabs type="line" animated>
           <!-- 第一个Tab：主体环境 -->
@@ -78,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref, onBeforeUnmount } from 'vue'
 import { NSpin, NButton, NTabs, NTabPane, NAlert } from 'naive-ui'
 import { storeToRefs } from 'pinia'
 import { usePromptStore } from '@/stores/promptStore'
@@ -88,6 +88,9 @@ import PromptSubCategoryList from './PromptSubCategoryList.vue'
 
 const promptStore = usePromptStore()
 const { loading, error, config, selectedPrompts, subjectEnvironment } = storeToRefs(promptStore)
+
+// Tabs 容器引用
+const tabsContainerRef = ref<HTMLElement | null>(null)
 
 // 计算属性：获取所有分类
 const categories = computed(() => {
@@ -149,11 +152,96 @@ const handleRetry = () => {
   promptStore.loadConfig()
 }
 
-// 组件挂载时加载配置
+// 拖动滚动功能
+let tabsNavElement: HTMLElement | null = null
+let wrapperElement: HTMLElement | null = null
+let isDragging = false
+let startX = 0
+let scrollLeft = 0
+
+const handleMouseDown = (e: MouseEvent) => {
+  if (!tabsNavElement || !wrapperElement) return
+
+  // 只在标签栏区域响应
+  const target = e.target as HTMLElement
+  const isOnTab = target.closest('.n-tabs-tab') || target.closest('.n-tabs-nav-scroll-wrapper')
+
+  if (!isOnTab) return
+
+  isDragging = true
+  startX = e.pageX
+  scrollLeft = tabsNavElement.scrollLeft
+  wrapperElement.style.cursor = 'grabbing'
+  wrapperElement.style.userSelect = 'none'
+
+  // 阻止默认的文本选择和点击行为
+  e.preventDefault()
+}
+
+const handleMouseMove = (e: MouseEvent) => {
+  if (!isDragging || !tabsNavElement) return
+  e.preventDefault()
+
+  const x = e.pageX
+  const walk = (startX - x) * 2
+  tabsNavElement.scrollLeft = scrollLeft + walk
+}
+
+const handleMouseUp = () => {
+  if (!wrapperElement) return
+  isDragging = false
+  wrapperElement.style.cursor = 'grab'
+  wrapperElement.style.userSelect = 'auto'
+}
+
+const handleMouseLeave = () => {
+  if (!wrapperElement || !isDragging) return
+  isDragging = false
+  wrapperElement.style.cursor = 'grab'
+  wrapperElement.style.userSelect = 'auto'
+}
+
+// 组件挂载时加载配置和设置拖动滚动
 onMounted(() => {
   if (!config.value) {
     promptStore.loadConfig()
   }
+
+  // 设置拖动滚动功能
+  setTimeout(() => {
+    if (tabsContainerRef.value) {
+      // 找到真正可以滚动的元素 v-x-scroll
+      const scrollElement = tabsContainerRef.value.querySelector('.v-x-scroll') as HTMLElement
+      const wrapper = tabsContainerRef.value.querySelector('.n-tabs-nav-scroll-wrapper') as HTMLElement
+
+      if (scrollElement && wrapper) {
+        // scrollElement 是真正滚动的元素
+        tabsNavElement = scrollElement
+        wrapperElement = wrapper
+
+        // 设置 wrapper 的样式（显示拖动光标）
+        wrapper.style.cursor = 'grab'
+
+        // 在 wrapper 上监听鼠标按下事件
+        wrapper.addEventListener('mousedown', handleMouseDown, { passive: false })
+        wrapper.addEventListener('mouseleave', handleMouseLeave)
+
+        // 在 document 上监听移动和松开事件
+        document.addEventListener('mousemove', handleMouseMove, { passive: false })
+        document.addEventListener('mouseup', handleMouseUp)
+      }
+    }
+  }, 300)
+})
+
+// 组件卸载时清理事件监听器
+onBeforeUnmount(() => {
+  if (wrapperElement) {
+    wrapperElement.removeEventListener('mousedown', handleMouseDown)
+    wrapperElement.removeEventListener('mouseleave', handleMouseLeave)
+  }
+  document.removeEventListener('mousemove', handleMouseMove)
+  document.removeEventListener('mouseup', handleMouseUp)
 })
 </script>
 
@@ -203,6 +291,29 @@ onMounted(() => {
 
 .tabs-container :deep(.n-tabs-nav) {
   flex-shrink: 0;
+}
+
+.tabs-container :deep(.n-tabs-nav-scroll-content) {
+  transition: none;
+}
+
+.tabs-container :deep(.n-tabs-nav-scroll-wrapper) {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color, rgba(0, 0, 0, 0.2)) transparent;
+}
+
+.tabs-container :deep(.n-tabs-nav-scroll-wrapper)::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs-container :deep(.n-tabs-nav-scroll-wrapper)::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color, rgba(0, 0, 0, 0.2));
+  border-radius: 2px;
+}
+
+.tabs-container :deep(.n-tabs-nav-scroll-wrapper)::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .tabs-container :deep(.n-tabs-tab) {
