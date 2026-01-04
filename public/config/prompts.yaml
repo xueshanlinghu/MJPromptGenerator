@@ -36,6 +36,8 @@ categories:
           - id: highspeed-photography
             prompt_zh: 高速摄影
             prompt_en: highspeed photography
+            preview: shutter-speed/highspeed-photography.png
+            generationPrompt: "photography, highspeed photography, a red bell pepper falls into the clear water and splashes, product map --v 7 --ar 16:9"
 
           - id: slow-movement
             prompt_zh: 慢动作

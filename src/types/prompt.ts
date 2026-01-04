@@ -14,6 +14,8 @@ export interface PromptItem {
   description?: string
   /** 预览图路径（相对于 public/preview-images/） */
   preview?: string
+  /** 生成示例图的提示词（可选，如果配置了则在预览窗口中显示） */
+  generationPrompt?: string
 }
 
 /** 二级子分类 */

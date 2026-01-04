@@ -30,6 +30,12 @@
         <div class="preview-prompt">{{ prompt?.prompt_en }}</div>
       </div>
 
+      <!-- 生成示例图的提示词（如果配置） -->
+      <div v-if="prompt?.generationPrompt" class="generation-prompt">
+        <div class="generation-prompt-label">预览图生成提示词：</div>
+        <div class="generation-prompt-text">{{ prompt.generationPrompt }}</div>
+      </div>
+
       <!-- 额外说明（如果提供） -->
       <div v-if="prompt?.description" class="preview-description">
         {{ prompt.description }}
@@ -68,12 +74,15 @@ const handleImageError = () => {
 
 <style scoped>
 .preview-content {
-  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 384px;
 }
 
 .preview-image-wrapper {
-  width: 256px;
-  height: 256px;
+  width: 384px;
+  height: 216px;
   border-radius: 8px;
   overflow: hidden;
   background: var(--bg-tertiary);
@@ -87,8 +96,8 @@ const handleImageError = () => {
 }
 
 .no-preview {
-  width: 256px;
-  height: 256px;
+  width: 384px;
+  height: 216px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,6 +122,7 @@ const handleImageError = () => {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 384px;
 }
 
 .preview-title {
@@ -128,6 +138,31 @@ const handleImageError = () => {
   word-break: break-all;
 }
 
+.generation-prompt {
+  margin-top: 8px;
+  padding: 8px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-color);
+  width: 384px;
+  box-sizing: border-box;
+}
+
+.generation-prompt-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.generation-prompt-text {
+  font-size: 12px;
+  color: var(--text-primary);
+  font-family: monospace;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
 .preview-description {
   margin-top: 8px;
   padding-top: 8px;
@@ -135,6 +170,7 @@ const handleImageError = () => {
   font-size: 12px;
   color: var(--text-secondary);
   line-height: 1.5;
-  max-width: 256px;
+  width: 384px;
+  box-sizing: border-box;
 }
 </style>
