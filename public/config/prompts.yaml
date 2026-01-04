@@ -42,6 +42,8 @@ categories:
           - id: slow-movement
             prompt_zh: 慢动作
             prompt_en: slow movement
+            preview: shutter-speed/slow-movement.png
+            generationPrompt: "photography by Henri Cartier-Bresson, slow movement, A vintage black and white street photography shot of a man in mid-air jumping over a large puddle on a rainy Parisian street, 1950s style, water splashing everywhere, reflections on the wet ground, classic vintage cars parked in the background  --v 7 --ar 16:9"
 
           - id: bullet-time
             prompt_zh: 子弹时间
