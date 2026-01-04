@@ -34,7 +34,7 @@
           <n-select
             v-if="param.type === 'select'"
             v-model:value="values[param.id]"
-            :options="param.options"
+            :options="param.options as any"
             size="small"
             @update:value="handleChange"
           />

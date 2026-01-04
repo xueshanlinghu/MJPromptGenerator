@@ -53,6 +53,7 @@ export interface InputParameter extends BaseParameter {
 /** 复选框参数 */
 export interface CheckboxParameter extends BaseParameter {
   type: 'checkbox'
+  label?: string
   default: boolean
 }
 
