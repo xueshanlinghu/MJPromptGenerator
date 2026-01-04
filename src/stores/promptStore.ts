@@ -134,6 +134,19 @@ export const usePromptStore = defineStore('prompt', {
     },
 
     /**
+     * 初始化（设置热更新监听）
+     */
+    init() {
+      // 开发环境下监听配置热更新
+      if (import.meta.env.DEV) {
+        window.addEventListener('config:prompts:updated', () => {
+          console.log('🔄 Reloading prompts config...')
+          this.loadConfig()
+        })
+      }
+    },
+
+    /**
      * 设置主体与环境描述
      */
     setSubjectEnvironment(value: string) {

@@ -8,7 +8,9 @@ import type { PromptsConfig, ParametersConfig } from '@/types'
  */
 async function loadYamlConfig<T>(path: string): Promise<T> {
   try {
-    const response = await fetch(path)
+    // 添加时间戳防止缓存（开发环境）
+    const url = import.meta.env.DEV ? `${path}?t=${Date.now()}` : path
+    const response = await fetch(url)
     if (!response.ok) {
       throw new Error(`Failed to load config: ${path}`)
     }
@@ -68,4 +70,23 @@ export async function getParametersConfig(): Promise<ParametersConfig> {
 export function clearConfigCache(): void {
   configCache.prompts = null
   configCache.parameters = null
+}
+
+// 开发环境下启用 HMR
+if (import.meta.hot) {
+  // 监听 prompts.yaml 的变化
+  import.meta.hot.accept('/src/config/prompts.yaml', () => {
+    console.log('🔄 Prompts config updated, clearing cache...')
+    configCache.prompts = null
+    // 触发自定义事件，通知 store 重新加载
+    window.dispatchEvent(new CustomEvent('config:prompts:updated'))
+  })
+
+  // 监听 parameters.yaml 的变化
+  import.meta.hot.accept('/src/config/parameters.yaml', () => {
+    console.log('🔄 Parameters config updated, clearing cache...')
+    configCache.parameters = null
+    // 触发自定义事件，通知 store 重新加载
+    window.dispatchEvent(new CustomEvent('config:parameters:updated'))
+  })
 }
