@@ -6,6 +6,11 @@
         <span class="logo-subtitle">Midjourney 提示词生成器</span>
       </div>
 
+      <!-- 搜索栏 -->
+      <div class="search-section">
+        <PromptSearch />
+      </div>
+
       <div class="header-actions">
         <a
           href="https://github.com/xueshanlinghu/MJPromptGenerator"
@@ -36,6 +41,7 @@
 <script setup lang="ts">
 import { NButton, NIcon } from 'naive-ui'
 import ThemeToggle from './ThemeToggle.vue'
+import PromptSearch from './PromptSearch.vue'
 </script>
 
 <style scoped>
@@ -54,12 +60,22 @@ import ThemeToggle from './ThemeToggle.vue'
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .logo-section {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex-shrink: 0;
+}
+
+.search-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 1150px;
+  margin-right: auto;
 }
 
 .logo-title {
@@ -97,6 +113,25 @@ import ThemeToggle from './ThemeToggle.vue'
 @media (max-width: 768px) {
   .app-header {
     padding: 16px 20px;
+  }
+
+  .header-container {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo-section {
+    order: 1;
+  }
+
+  .header-actions {
+    order: 2;
+  }
+
+  .search-section {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
   }
 
   .logo-title {
