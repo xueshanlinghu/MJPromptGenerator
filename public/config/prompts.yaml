@@ -221,18 +221,26 @@ categories:
           - id: long-shot
             prompt_zh: 远景镜头
             prompt_en: long shot
+            preview: lens-position/long-shot.webp
+            generationPrompt: "photography, long shot, person walking on beach from distance, coastline and ocean, golden hour --v 7 --ar 16:9"
 
           - id: medium-shot
             prompt_zh: 中景镜头
             prompt_en: medium shot
+            preview: lens-position/medium-shot.webp
+            generationPrompt: "photography, medium shot, person sitting at cafe table, upper body visible, urban street background --v 7 --ar 16:9"
 
           - id: close-up
             prompt_zh: 特写镜头
             prompt_en: close-up
+            preview: lens-position/close-up.webp
+            generationPrompt: "photography, close-up, human eye with detailed iris, reflections, sharp focus, natural light --v 7 --ar 16:9"
 
           - id: extreme-close-up
             prompt_zh: 极特写镜头
             prompt_en: extreme close-up
+            preview: lens-position/extreme-close-up.webp
+            generationPrompt: "photography, extreme close-up, human lips texture, skin pores visible, dramatic lighting --v 7 --ar 16:9"
 
       - id: shot-angle
         name: 景别-角度
@@ -240,18 +248,26 @@ categories:
           - id: topview
             prompt_zh: 顶视图
             prompt_en: topview
+            preview: lens-position/topview.webp
+            generationPrompt: "photography, topview, breakfast table from directly above, coffee and food arrangement, flat lay --v 7 --ar 16:9"
 
           - id: high-angle-shot
             prompt_zh: 高角度镜头
             prompt_en: high angle shot
+            preview: lens-position/high-angle-shot.webp
+            generationPrompt: "photography, high angle shot, person reading book in library, looking down from above, warm lighting --v 7 --ar 16:9"
 
           - id: low-angle-shot
             prompt_zh: 低角度镜头
             prompt_en: low angle shot
+            preview: lens-position/low-angle-shot.webp
+            generationPrompt: "photography, low angle shot, skyscraper looking up, dramatic perspective, blue sky background --v 7 --ar 16:9"
 
           - id: bottom-up-view
             prompt_zh: 仰视角度
             prompt_en: bottom-up view
+            preview: lens-position/bottom-up-view.webp
+            generationPrompt: "photography, bottom up view, tree canopy from ground level, branches against sky, sunlight filtering through --v 7 --ar 16:9"
 
       - id: shot-portrait
         name: 景别-人物
@@ -259,38 +275,56 @@ categories:
           - id: full-body-shot
             prompt_zh: 全身照
             prompt_en: Full-body shot
+            preview: lens-position/full-body-shot.webp
+            generationPrompt: "photography, full-body shot, fashion model standing, entire body visible head to toe, studio background --v 7 --ar 16:9"
 
           - id: half-body-shot
             prompt_zh: 半身照
             prompt_en: Half-body shot
+            preview: lens-position/half-body-shot.webp
+            generationPrompt: "photography, half-body shot, business person from waist up, professional attire, office environment --v 7 --ar 16:9"
 
           - id: waistup-shot
             prompt_zh: 腰部特写
             prompt_en: waistup shot
+            preview: lens-position/waistup-shot.webp
+            generationPrompt: "photography, waistup shot, chef cooking in kitchen, from waist to head, culinary action --v 7 --ar 16:9"
 
           - id: side-shot
             prompt_zh: 侧面照
             prompt_en: side shot
+            preview: lens-position/side-shot.webp
+            generationPrompt: "photography, side shot, person's profile silhouette, side view, dramatic rim lighting --v 7 --ar 16:9"
 
           - id: portrait
             prompt_zh: 肖像照
             prompt_en: Portrait
+            preview: lens-position/portrait.webp
+            generationPrompt: "photography, portrait, headshot of smiling person, shoulders and face, natural expression, soft lighting --v 7 --ar 16:9"
 
           - id: back-shot
             prompt_zh: 背影照
             prompt_en: Back shot
+            preview: lens-position/back-shot.webp
+            generationPrompt: "photography, back shot, person walking away towards sunset, rear view, silhouette --v 7 --ar 16:9"
 
           - id: back-neck-shot
             prompt_zh: 颈部特写
             prompt_en: Back neck shot
+            preview: lens-position/back-neck-shot.webp
+            generationPrompt: "photography, back neck shot, close-up of neck and hairline from behind, elegant, soft light --v 7 --ar 16:9"
 
           - id: collarbone-shot
             prompt_zh: 锁骨特写
             prompt_en: Collarbone shot
+            preview: lens-position/collarbone-shot.webp
+            generationPrompt: "photography, collarbone shot, close-up of collarbone and neck area, jewelry detail, elegant lighting --v 7 --ar 16:9"
 
           - id: hand-shot
             prompt_zh: 手部特写
             prompt_en: Hand shot
+            preview: lens-position/hand-shot.webp
+            generationPrompt: "photography, hand shot, close-up of hands holding coffee cup, detailed texture, warm light --v 7 --ar 16:9"
 
       - id: shot-special
         name: 景别-特殊
@@ -298,38 +332,56 @@ categories:
           - id: wide-angle
             prompt_zh: 广角
             prompt_en: Wide angle
+            preview: lens-position/wide-angle.webp
+            generationPrompt: "photography, wide angle, spacious interior of modern home, expansive view, natural light --v 7 --ar 16:9"
 
           - id: ultra-wide-angle
             prompt_zh: 超广角
             prompt_en: Ultra-wide angle
+            preview: lens-position/ultra-wide-angle.webp
+            generationPrompt: "photography, ultra-wide angle, dramatic perspective of city street, distorted edges, dynamic composition --v 7 --ar 16:9"
 
           - id: panorama
             prompt_zh: 全景
             prompt_en: Panorama
+            preview: lens-position/panorama.webp
+            generationPrompt: "photography, panorama, sweeping mountain range landscape, wide horizontal view, epic scale --v 7 --ar 16:9"
 
           - id: 360-panorama
             prompt_zh: 360全景
             prompt_en: 360 panorama
+            preview: lens-position/360-panorama.webp
+            generationPrompt: "photography, 360 panorama, complete circular view of valley, surrounding landscape, immersive --v 7 --ar 16:9"
 
           - id: fish-eye-lens
             prompt_zh: 鱼眼镜头
             prompt_en: Fish eye lens
+            preview: lens-position/fish-eye-lens.webp
+            generationPrompt: "photography, fish eye lens, circular distorted view of skateboarder, extreme wide angle, curved horizon --v 7 --ar 16:9"
 
           - id: aerial-view
             prompt_zh: 俯瞰视角
             prompt_en: Aerial view
+            preview: lens-position/aerial-view.webp
+            generationPrompt: "photography, aerial view, bird's eye view of coastal town, buildings and beach, drone perspective --v 7 --ar 16:9"
 
           - id: over-shoulder-shot
             prompt_zh: 过肩镜头
             prompt_en: over shoulder shot
+            preview: lens-position/over-shoulder-shot.webp
+            generationPrompt: "photography, over shoulder shot, view from behind person's shoulder, conversation scene, natural framing --v 7 --ar 16:9"
 
           - id: first-person-view
             prompt_zh: 第一人称视角
             prompt_en: First-person view
+            preview: lens-position/first-person-view.webp
+            generationPrompt: "photography, first-person view, hands visible in frame holding hiking poles, trail ahead, POV perspective --v 7 --ar 16:9"
 
           - id: third-person-view
             prompt_zh: 第三人称视角
             prompt_en: Third-person view
+            preview: lens-position/third-person-view.webp
+            generationPrompt: "photography, third-person view, photographer in landscape taking photo, external perspective, storytelling --v 7 --ar 16:9"
 
       - id: equipment-film
         name: 景别-设备、胶片
@@ -337,58 +389,86 @@ categories:
           - id: dslr
             prompt_zh: 数码单反
             prompt_en: DSLR
+            preview: lens-position/dslr.webp
+            generationPrompt: "photography, DSLR, sharp professional photo of landscape, high detail, crisp focus --v 7 --ar 16:9"
 
           - id: nikon-z7
             prompt_zh: 尼康Z7
             prompt_en: NikonZ7/Z7II
+            preview: lens-position/nikon-z7.webp
+            generationPrompt: "photography, NikonZ7, high-resolution portrait with excellent color, professional quality --v 7 --ar 16:9"
 
           - id: canon-eos-r5
             prompt_zh: 佳能EOS R5
             prompt_en: CanonEOSR5
+            preview: lens-position/canon-eos-r5.webp
+            generationPrompt: "photography, CanonEOSR5, wildlife action shot with fast autofocus, sharp details --v 7 --ar 16:9"
 
           - id: fujifilm-xt4
             prompt_zh: 富士X-T4
             prompt_en: FujifilmX-T4-APS-C
+            preview: lens-position/fujifilm-xt4.webp
+            generationPrompt: "photography, FujifilmX-T4, street photography with film simulation colors, vintage tones --v 7 --ar 16:9"
 
           - id: sony-alpha1
             prompt_zh: 索尼Alpha 1
             prompt_en: SonyAlpha1
+            preview: lens-position/sony-alpha1.webp
+            generationPrompt: "photography, SonyAlpha1, sports action freeze frame, incredible detail, professional --v 7 --ar 16:9"
 
           - id: leica-sl2
             prompt_zh: 徕卡SL2
             prompt_en: LeicaSL2
+            preview: lens-position/leica-sl2.webp
+            generationPrompt: "photography, LeicaSL2, premium portrait with exceptional lens quality, rich tones --v 7 --ar 16:9"
 
           - id: panasonic-lumix-s1r
             prompt_zh: 松下LUMIX S1R
             prompt_en: PanasonicLUMIXS1R
+            preview: lens-position/panasonic-lumix-s1r.webp
+            generationPrompt: "photography, PanasonicLUMIXS1R, high-resolution landscape with excellent dynamic range --v 7 --ar 16:9"
 
           - id: hasselblad-h2d
             prompt_zh: 哈苏H2D
             prompt_en: HasselbladH2D
+            preview: lens-position/hasselblad-h2d.webp
+            generationPrompt: "photography, HasselbladH2D, medium format fashion photography, exquisite detail, studio quality --v 7 --ar 16:9"
 
           - id: gopro
             prompt_zh: GoPro运动相机
             prompt_en: GoPro
+            preview: lens-position/gopro.webp
+            generationPrompt: "photography, GoPro, action sports with wide angle view, extreme sports, dynamic motion --v 7 --ar 16:9"
 
           - id: dji
             prompt_zh: 大疆无人机
             prompt_en: DJI
+            preview: lens-position/dji.webp
+            generationPrompt: "photography, DJI, aerial drone shot of winding river through forest, top-down view --v 7 --ar 16:9"
 
           - id: cinestill-50
             prompt_zh: Cinestill 50胶片
             prompt_en: Cinestill 50 film
+            preview: lens-position/cinestill-50.webp
+            generationPrompt: "photography, Cinestill 50 film, cinematic colors with halation glow, night city lights --v 7 --ar 16:9"
 
           - id: kodak-trix-400
             prompt_zh: 柯达Tri-X 400胶片
             prompt_en: Kodak Tri-X400 film
+            preview: lens-position/kodak-trix-400.webp
+            generationPrompt: "photography, Kodak Tri-X400 film, classic black and white with grain, street photography --v 7 --ar 16:9"
 
           - id: kodak-fujicolor-c200
             prompt_zh: 柯达富士C200
             prompt_en: Kodak Fujicolor C200
+            preview: lens-position/kodak-fujicolor-c200.webp
+            generationPrompt: "photography, Kodak Fujicolor C200, warm film colors, nostalgic summer vibes, natural tones --v 7 --ar 16:9"
 
           - id: lomography-color100
             prompt_zh: Lomo Color 100
             prompt_en: Lomography Color100
+            preview: lens-position/lomography-color100.webp
+            generationPrompt: "photography, Lomography Color100, vibrant saturated colors, artistic vignette, experimental --v 7 --ar 16:9"
 
   # 光线控制
   - id: lighting
