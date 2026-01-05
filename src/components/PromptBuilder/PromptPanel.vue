@@ -66,6 +66,19 @@
               @toggle="handleTogglePrompt"
             />
           </n-tab-pane>
+
+          <!-- 最后一个Tab：画廊 -->
+          <n-tab-pane name="gallery">
+            <template #tab>
+              <span class="tab-label">
+                <span class="tab-icon">🖼️</span>
+                <span class="tab-name">画廊</span>
+              </span>
+            </template>
+
+            <!-- 画廊内容 -->
+            <PromptGallery />
+          </n-tab-pane>
         </n-tabs>
       </div>
 
@@ -85,6 +98,7 @@ import { usePromptStore } from '@/stores/promptStore'
 import type { PromptCategory as PromptCategoryType } from '@/types'
 import SubjectEnvironmentInput from './SubjectEnvironmentInput.vue'
 import PromptSubCategoryList from './PromptSubCategoryList.vue'
+import PromptGallery from './PromptGallery.vue'
 
 const promptStore = usePromptStore()
 const { loading, error, config, selectedPrompts, subjectEnvironment } = storeToRefs(promptStore)
