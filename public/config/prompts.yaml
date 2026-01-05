@@ -118,22 +118,32 @@ categories:
       - id: dof
         prompt_zh: 景深
         prompt_en: DOF
+        preview: depth-aperture/dof.webp
+        generationPrompt: "photography, DOF, portrait shot, a woman's face in sharp focus with blurred autumn forest background, natural light, warm tones --v 7 --ar 16:9"
 
       - id: depth-of-field
         prompt_zh: 景深
         prompt_en: Depth of field
+        preview: depth-aperture/depth-of-field.webp
+        generationPrompt: "photography, depth of field, close-up of red rose in focus with garden blurred in background, soft morning light --v 7 --ar 16:9"
 
       - id: bokeh
         prompt_zh: 散景
         prompt_en: bokeh
+        preview: depth-aperture/bokeh.webp
+        generationPrompt: "photography, bokeh, portrait with beautiful circular bokeh lights in background, city night scene, warm golden lights --v 7 --ar 16:9"
 
       - id: bokehlicious
         prompt_zh: 梦幻散景
         prompt_en: Bokehlicious
+        preview: depth-aperture/bokehlicious.webp
+        generationPrompt: "photography, bokehlicious, dreamy portrait with creamy smooth bokeh, sparkling fairy lights background, magical atmosphere, soft focus --v 7 --ar 16:9"
 
       - id: tilt-shift
         prompt_zh: 移轴摄影
         prompt_en: Tilt-shift photography
+        preview: depth-aperture/tilt-shift.webp
+        generationPrompt: "photography, tilt-shift photography, aerial view of race track with racing cars, miniature effect, selective focus, toy-like appearance --v 7 --ar 16:9"
 
   # 镜头的长短和位置
   - id: lens-position
