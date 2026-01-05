@@ -48,10 +48,14 @@ categories:
           - id: bullet-time
             prompt_zh: 子弹时间
             prompt_en: Bullet time
+            preview: shutter-speed/bullet-time.webp
+            generationPrompt: "photography, bullet time, a soccer player kicking ball in mid-air, stadium background --v 7 --ar 16:9"
 
           - id: slow-motion
             prompt_zh: 慢镜头
             prompt_en: slow motion
+            preview: shutter-speed/slow-motion.webp
+            generationPrompt: "photography, slow motion, water balloon bursting with colorful paint explosion, black background, dramatic lighting --v 7 --ar 16:9"
 
       - id: time-lapse
         name: 延时摄影
@@ -59,10 +63,14 @@ categories:
           - id: time-lapse-photography
             prompt_zh: 延时摄影
             prompt_en: Time-lapse photography
+            preview: shutter-speed/time-lapse-photography.webp
+            generationPrompt: "photography, time-lapse photography, city skyline from day to night transition, moving clouds and traffic light trails, urban landscape --v 7 --ar 16:9"
 
           - id: long-exposure
             prompt_zh: 长曝光
             prompt_en: long exposure
+            preview: shutter-speed/long-exposure.webp
+            generationPrompt: "photography, long exposure, waterfall with silky smooth flowing water, misty effect, rocks and green forest, soft natural light --v 7 --ar 16:9"
 
       - id: time-interval
         name: 定时摄影
@@ -70,10 +78,14 @@ categories:
           - id: chrono-photography
             prompt_zh: 连续摄影
             prompt_en: Chrono photography
+            preview: shutter-speed/chrono-photography.webp
+            generationPrompt: "photography, chrono photography, multiple frames showing golf swing sequence in one image, clean white background, professional studio lighting --v 7 --ar 16:9"
 
           - id: stroboscopic
             prompt_zh: 频闪效应
             prompt_en: Stroboscopic
+            preview: shutter-speed/stroboscopic.webp
+            generationPrompt: "photography, stroboscopic, dancer moving across frame with multiple exposures creating motion trail, dark stage, strobe flash lighting --v 7 --ar 16:9"
 
       - id: light-painting
         name: 光涂鸦
@@ -81,14 +93,20 @@ categories:
           - id: light-painting
             prompt_zh: 光绘
             prompt_en: Light painting
+            preview: shutter-speed/light-painting.webp
+            generationPrompt: "photography, light painting, glowing light trails drawing spiral patterns in darkness, long exposure night photography, vibrant neon colors --v 7 --ar 16:9"
 
           - id: light-graffiti
             prompt_zh: 光涂鸦
             prompt_en: Light graffiti
+            preview: shutter-speed/light-graffiti.webp
+            generationPrompt: "photography, light graffiti, urban street art created with colored light painting, abandoned warehouse wall, long exposure night shot --v 7 --ar 16:9"
 
           - id: light-drawing
             prompt_zh: 光绘画
             prompt_en: Light drawing
+            preview: shutter-speed/light-drawing.webp
+            generationPrompt: "photography, light drawing, silhouette of person drawing heart shape with sparkler in air, night beach scene, long exposure --v 7 --ar 16:9"
 
   # 景深和光圈（一级分类，无二级）
   - id: depth-aperture
