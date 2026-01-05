@@ -36,13 +36,13 @@ categories:
           - id: highspeed-photography
             prompt_zh: 高速摄影
             prompt_en: highspeed photography
-            preview: shutter-speed/highspeed-photography.png
+            preview: shutter-speed/highspeed-photography.webp
             generationPrompt: "photography, highspeed photography, a red bell pepper falls into the clear water and splashes, product map --v 7 --ar 16:9"
 
           - id: slow-movement
             prompt_zh: 慢动作
             prompt_en: slow movement
-            preview: shutter-speed/slow-movement.png
+            preview: shutter-speed/slow-movement.webp
             generationPrompt: "photography by Henri Cartier-Bresson, slow movement, A vintage black and white street photography shot of a man in mid-air jumping over a large puddle on a rainy Parisian street, 1950s style, water splashing everywhere, reflections on the wet ground, classic vintage cars parked in the background  --v 7 --ar 16:9"
 
           - id: bullet-time
