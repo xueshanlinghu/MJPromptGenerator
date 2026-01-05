@@ -483,30 +483,44 @@ categories:
           - id: rembrandt-lighting
             prompt_zh: 伦勃朗光
             prompt_en: Rembrandt lighting
+            preview: lighting/rembrandt-lighting.webp
+            generationPrompt: "photography, rembrandt lighting, portrait with triangle of light on cheek, dramatic shadows, classic studio setup --v 7 --ar 16:9"
 
           - id: split-lighting
             prompt_zh: 半面光（分割光）
             prompt_en: split lighting
+            preview: lighting/split-lighting.webp
+            generationPrompt: "photography, split lighting, portrait with half face lit and half in shadow, dramatic contrast, side lighting --v 7 --ar 16:9"
 
           - id: clamshell-lighting
             prompt_zh: 贝壳夹光
             prompt_en: clamshell lighting
+            preview: lighting/clamshell-lighting.webp
+            generationPrompt: "photography, clamshell lighting, beauty portrait with soft shadows under chin, upper and lower lights, glamorous --v 7 --ar 16:9"
 
           - id: butterfly-lighting
             prompt_zh: 蝴蝶光
             prompt_en: butterfly lighting
+            preview: lighting/butterfly-lighting.webp
+            generationPrompt: "photography, butterfly lighting, portrait with butterfly-shaped shadow under nose, centered above subject, classic beauty lighting --v 7 --ar 16:9 --no butterfly"
 
           - id: paramount-lighting
             prompt_zh: 派拉蒙光
             prompt_en: Paramount Lighting
+            preview: lighting/paramount-lighting.webp
+            generationPrompt: "photography, paramount lighting, glamorous portrait with classic Hollywood lighting, soft shadows, elegant mood --v 7 --ar 16:9"
 
           - id: loop-lighting
             prompt_zh: 环形光
             prompt_en: loop lighting
+            preview: lighting/loop-lighting.webp
+            generationPrompt: "photography, loop lighting, portrait with small shadow of nose looping down, natural look, versatile --v 7 --ar 16:9"
 
           - id: flat-lighting
             prompt_zh: 泛光（无影光）
             prompt_en: flat lighting
+            preview: lighting/flat-lighting.webp
+            generationPrompt: "photography, flat lighting, portrait with minimal shadows, even illumination, beauty photography --v 7 --ar 16:9"
 
       - id: light-position
         name: 光线-位置
@@ -514,26 +528,38 @@ categories:
           - id: top-lighting
             prompt_zh: 顶光
             prompt_en: Top lighting
+            preview: lighting/top-lighting.webp
+            generationPrompt: "photography, top lighting, subject lit from directly above, dramatic overhead light, theatrical mood --v 7 --ar 16:9"
 
           - id: stage-lighting
             prompt_zh: 舞台光
             prompt_en: Stage lighting
+            preview: lighting/stage-lighting.webp
+            generationPrompt: "photography, stage lighting, performer in spotlight on dark stage, theatrical beams, dramatic atmosphere --v 7 --ar 16:9"
 
           - id: back-lighting
             prompt_zh: 背光
             prompt_en: Back lighting
+            preview: lighting/back-lighting.webp
+            generationPrompt: "photography, back lighting, subject with light source behind, silhouette effect, golden rim --v 7 --ar 16:9"
 
           - id: rim-lighting
             prompt_zh: 轮廓光
             prompt_en: Rim lighting
+            preview: lighting/rim-lighting.webp
+            generationPrompt: "photography, rim lighting, portrait with glowing edge light outlining subject, dramatic separation, moody --v 7 --ar 16:9"
 
           - id: bottom-lighting
             prompt_zh: 底光
             prompt_en: Bottom lighting
+            preview: lighting/bottom-lighting.webp
+            generationPrompt: "photography, bottom lighting, face lit from below, eerie dramatic effect, horror movie style --v 7 --ar 16:9"
 
           - id: side-lighting
             prompt_zh: 侧光
             prompt_en: Side lighting
+            preview: lighting/side-lighting.webp
+            generationPrompt: "photography, side lighting, portrait with strong directional light from side, texture emphasis, dramatic shadows --v 7 --ar 16:9"
 
       - id: light-intensity
         name: 光线-光度
@@ -541,10 +567,14 @@ categories:
           - id: hard-lighting
             prompt_zh: 硬光
             prompt_en: Hard lighting
+            preview: lighting/hard-lighting.webp
+            generationPrompt: "photography, hard lighting, portrait with sharp defined shadows, strong contrast, intense directional light --v 7 --ar 16:9"
 
           - id: soft-lighting
             prompt_zh: 柔光
             prompt_en: Soft lighting
+            preview: lighting/soft-lighting.webp
+            generationPrompt: "photography, soft lighting, portrait with gentle diffused light, smooth gradual shadows, flattering --v 7 --ar 16:9"
 
           - id: board-lighting
             prompt_zh: 宽位光
