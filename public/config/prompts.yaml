@@ -249,9 +249,9 @@ categories:
             prompt_zh: 低角度镜头
             prompt_en: low angle shot
 
-          - id: buttom-up-view
+          - id: bottom-up-view
             prompt_zh: 仰视角度
-            prompt_en: buttom(up)view
+            prompt_en: bottom-up view
 
       - id: shot-portrait
         name: 景别-人物
