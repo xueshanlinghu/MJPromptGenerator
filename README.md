@@ -5,6 +5,8 @@
 ## ✨ 功能特性
 
 - 🎨 **美观的界面** - 基于 Naive UI 的现代化设计，支持亮/暗双主题
+- 🔍 **全局搜索** - 支持 Ctrl+K 快捷键激活，中英文关键词模糊搜索，快速定位提示词
+- 🖼️ **提示词画廊** - 浏览所有带预览图的提示词，支持一键使用
 - 📸 **专业摄影提示词库** - 200+ 精选摄影提示词，覆盖快门、光圈、镜头、光线等专业领域
 - 🏗️ **二级分类结构** - 清晰的一级/二级分类体系，快速定位所需提示词
 - 🎯 **智能分组** - 按艺术家、相机参数、光线等位置标签自动分组
@@ -12,6 +14,7 @@
 - ⚙️ **完整参数支持** - 全面支持 Midjourney 参数（版本、宽高比、风格化等）
 - 📝 **主体环境输入** - 支持快速输入主体和环境描述，内置示例模板
 - 🖱️ **拖动滚动** - 分类标签支持鼠标拖动水平滚动，小屏幕友好
+- 👁️ **预览悬停** - 鼠标悬停提示词标签即可预览示例图和生成提示词
 - ✂️ **手动编辑** - 最终提示词支持手动编辑和调整
 - 📋 **一键复制** - 快速复制生成的完整提示词
 
@@ -90,25 +93,57 @@ base: process.env.NODE_ENV === 'production' ? '/' : '/',
 ```
 MJPromptGenerator/
 ├── public/
+│   ├── config/
+│   │   ├── prompts.yaml      # 提示词配置
+│   │   └── parameters.yaml   # 参数配置
 │   └── preview-images/        # 提示词预览图
+│       ├── shutter-speed/    # 快门速度类预览图
+│       ├── depth-aperture/   # 景深光圈类预览图
+│       ├── lens-position/    # 镜头位置类预览图
+│       ├── lighting/         # 光线控制类预览图
+│       └── artists/          # 艺术家类预览图
 ├── src/
-│   ├── components/            # Vue 组件
-│   │   ├── Layout/           # 布局组件
-│   │   ├── PromptBuilder/    # 提示词构建组件
-│   │   ├── ParameterPanel/   # 参数面板组件
-│   │   ├── ResultPanel/      # 结果展示组件
-│   │   └── AIPanel/          # AI 功能组件（预留）
-│   ├── config/               # YAML 配置文件
-│   ├── stores/               # Pinia 状态管理
-│   ├── types/                # TypeScript 类型定义
-│   ├── utils/                # 工具函数
-│   └── assets/               # 静态资源
+│   ├── components/
+│   │   ├── Layout/
+│   │   │   ├── AppHeader.vue       # 顶部导航栏
+│   │   │   ├── ThemeToggle.vue     # 主题切换按钮
+│   │   │   └── PromptSearch.vue    # 全局搜索组件（Ctrl+K）
+│   │   ├── PromptBuilder/
+│   │   │   ├── PromptPanel.vue          # 提示词主面板
+│   │   │   ├── PromptCategory.vue       # 分类组件
+│   │   │   ├── PromptSubCategoryList.vue # 二级分类列表
+│   │   │   ├── PromptTag.vue            # 提示词标签
+│   │   │   ├── PromptPreview.vue        # 悬停预览组件
+│   │   │   ├── PromptGallery.vue        # 提示词画廊
+│   │   │   └── SubjectEnvironmentInput.vue # 主体环境输入
+│   │   ├── ParameterPanel/
+│   │   │   └── ParameterPanel.vue  # Midjourney 参数面板
+│   │   ├── ResultPanel/
+│   │   │   └── ResultPanel.vue     # 结果展示面板
+│   │   └── AIPanel/                # AI 功能组件（预留）
+│   ├── stores/
+│   │   └── promptStore.ts          # Pinia 状态管理
+│   ├── types/
+│   │   ├── prompt.ts               # 提示词类型定义
+│   │   └── parameter.ts            # 参数类型定义
+│   ├── utils/
+│   │   ├── promptLoader.ts         # YAML 配置加载
+│   │   ├── promptGenerator.ts      # 提示词生成逻辑
+│   │   └── imageHelper.ts          # 图片路径处理
+│   ├── assets/                     # 静态资源
+│   ├── App.vue                     # 根组件
+│   └── main.ts                     # 入口文件
+├── .github/
+│   └── workflows/
+│       └── deploy.yml              # GitHub Pages 自动部署
 ├── package.json
 ├── vite.config.ts
 └── tsconfig.json
 ```
 
 ## 使用说明
+
+### 基本流程
 
 1. **输入主体环境** - 在"主体与环境"标签页中输入拍摄对象和场景描述（可使用示例模板）
 2. **选择摄影参数** - 从快门速度、景深光圈、镜头位置等分类中选择摄影技术参数
@@ -119,10 +154,28 @@ MJPromptGenerator/
 7. **编辑调整** - 可手动编辑最终提示词进行微调
 8. **一键复制** - 点击"复制"按钮，将提示词复制到剪贴板
 
+### 快速搜索
+
+- **快捷键**：按 `Ctrl+K`（Mac: `Cmd+K`）激活搜索框
+- **搜索方式**：输入中文或英文关键词，支持模糊匹配
+- **快速添加**：点击搜索结果即可添加到已选提示词
+- **已选标识**：已选择的提示词会显示绿色勾选图标
+- **关闭搜索**：点击外部或按 `ESC` 关闭搜索结果
+
+### 画廊浏览
+
+- **查看预览图**：切换到"画廊"标签，浏览所有带预览图的提示词
+- **查看详情**：点击预览图卡片查看大图和详细信息
+- **快速使用**：
+  - 鼠标悬停卡片，点击"使用此提示词"按钮
+  - 或在大图详情页中点击"使用此提示词"按钮
+- **生成提示词**：查看该预览图的生成提示词，作为参考
+
 ### 界面操作技巧
 
 - **拖动滚动**：分类标签过多时，可按住鼠标左键拖动标签栏水平滚动
 - **主题切换**：点击右上角的主题按钮，在亮色和暗色主题间切换
+- **悬停预览**：鼠标悬停在提示词标签上，可预览示例图和生成提示词（如果有配置）
 - **提示词排序**：在已选提示词列表中可拖拽调整顺序
 
 ## 提示词分类
@@ -180,7 +233,17 @@ categories:
           - id: bokeh
             prompt_zh: 散景
             prompt_en: bokeh
+            preview: depth-aperture/bokeh.webp  # 预览图路径（可选）
+            generationPrompt: "photography, bokeh, ..."  # 生成提示词（可选）
+            description: 适用于人像摄影  # 描述（可选）
 ```
+
+**预览图配置说明：**
+- 预览图存放在 `public/preview-images/` 目录下
+- 按一级分类组织文件夹（如 `shutter-speed/`、`lighting/` 等）
+- 推荐使用 16:9 比例的图片（如 1920x1080、1280x720）
+- 支持格式：PNG、JPG、WebP（推荐使用 WebP 以减小体积）
+- `generationPrompt` 字段用于展示该预览图的生成提示词，供用户参考
 
 ### 参数配置
 
@@ -218,8 +281,11 @@ parameters:
 - [x] 主体环境输入功能
 - [x] 最终提示词手动编辑
 - [x] 分类标签拖动滚动
+- [x] 提示词预览图展示
+- [x] 提示词搜索功能（Ctrl+K）
+- [x] 提示词画廊
+- [x] 生成提示词展示
 - [ ] 移动端适配优化
-- [ ] 提示词搜索功能
 - [ ] 收藏夹/历史记录
 - [ ] 导出/导入配置
 - [ ] 更多艺术家和风格
