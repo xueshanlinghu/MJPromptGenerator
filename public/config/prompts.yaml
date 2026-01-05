@@ -158,34 +158,50 @@ categories:
           - id: astrography
             prompt_zh: 天文摄影
             prompt_en: Astrography
+            preview: lens-position/astrography.webp
+            generationPrompt: "photography, astrography, milky way galaxy over mountain landscape, stars and nebulae, long exposure night sky --v 7 --ar 16:9"
 
           - id: astro-photography
             prompt_zh: 天体摄影
             prompt_en: Astro photography
+            preview: lens-position/astro-photography.webp
+            generationPrompt: "photography, astro photography, spiral galaxy with colorful nebula, deep space, telescope view --v 7 --ar 16:9"
 
           - id: shot-by-nasa
             prompt_zh: NASA拍摄
             prompt_en: Shot by NASA
+            preview: lens-position/shot-by-nasa.webp
+            generationPrompt: "photography, shot by NASA, Earth from space with clouds and continents, blue marble, satellite view --v 7 --ar 16:9"
 
           - id: shot-by-hubble
             prompt_zh: 哈勃望远镜拍摄
             prompt_en: Shot by hubble space telescope
+            preview: lens-position/shot-by-hubble.webp
+            generationPrompt: "photography, shot by hubble space telescope, colorful cosmic nebula with stars, pillars of creation style, deep space --v 7 --ar 16:9"
 
           - id: near-orbit-shot
             prompt_zh: 近轨道拍摄
             prompt_en: near orbit shot
+            preview: lens-position/near-orbit-shot.webp
+            generationPrompt: "photography, near orbit shot, space station orbiting Earth, curvature of planet, atmospheric glow --v 7 --ar 16:9"
 
           - id: macrography
             prompt_zh: 微距摄影
             prompt_en: Macrography
+            preview: lens-position/macrography.webp
+            generationPrompt: "photography, macrography, extreme close-up of butterfly wing showing detailed scales and patterns, vibrant colors --v 7 --ar 16:9"
 
           - id: micro-photography
             prompt_zh: 显微摄影
             prompt_en: Micro photography
+            preview: lens-position/micro-photography.webp
+            generationPrompt: "photography, micro photography, microscopic view of colorful crystals, scientific, detailed structure --v 7 --ar 16:9"
 
           - id: macroview
             prompt_zh: 微距视角
             prompt_en: Macroview
+            preview: lens-position/macroview.webp
+            generationPrompt: "photography, macroview, water droplets on spider web with morning dew, bokeh background, soft light --v 7 --ar 16:9"
 
       - id: shot-size
         name: 景别
@@ -193,10 +209,14 @@ categories:
           - id: extreme-long-shot
             prompt_zh: 极远景镜头
             prompt_en: extreme long shot
+            preview: lens-position/extreme-long-shot.webp
+            generationPrompt: "photography, extreme long shot, tiny person in vast desert landscape, endless sand dunes, dramatic sky --v 7 --ar 16:9"
 
           - id: telephoto-shots
             prompt_zh: 远景镜头
             prompt_en: Telephoto shots
+            preview: lens-position/telephoto-shots.webp
+            generationPrompt: "photography, telephoto shots, compressed perspective of mountain peaks, distant landscape, atmospheric haze --v 7 --ar 16:9"
 
           - id: long-shot
             prompt_zh: 远景镜头
