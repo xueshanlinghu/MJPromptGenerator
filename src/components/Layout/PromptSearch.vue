@@ -183,7 +183,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
 
 // v-click-outside 指令
 const vClickOutside = {
-  mounted(el: HTMLElement, binding: any) {
+  mounted(el: HTMLElement & { clickOutsideEvent?: (event: Event) => void }, binding: any) {
     el.clickOutsideEvent = (event: Event) => {
       if (!(el === event.target || el.contains(event.target as Node))) {
         binding.value()
@@ -191,8 +191,10 @@ const vClickOutside = {
     }
     document.addEventListener('click', el.clickOutsideEvent)
   },
-  unmounted(el: any) {
-    document.removeEventListener('click', el.clickOutsideEvent)
+  unmounted(el: HTMLElement & { clickOutsideEvent?: (event: Event) => void }) {
+    if (el.clickOutsideEvent) {
+      document.removeEventListener('click', el.clickOutsideEvent)
+    }
   }
 }
 
