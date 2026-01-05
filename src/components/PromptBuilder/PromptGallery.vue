@@ -25,6 +25,13 @@
               <div class="overlay-title">{{ item.prompt.prompt_zh }}</div>
               <div class="overlay-subtitle">{{ item.prompt.prompt_en }}</div>
             </div>
+            <button
+              class="use-prompt-btn"
+              @click.stop="handleUsePrompt(item)"
+            >
+              <span class="btn-icon">✓</span>
+              <span class="btn-text">使用此提示词</span>
+            </button>
           </div>
         </div>
       </div>
@@ -83,6 +90,17 @@
           <div v-if="selectedItem.prompt.generationPrompt" class="info-section generation-prompt">
             <div class="info-label">预览图生成提示词</div>
             <div class="info-value info-code">{{ selectedItem.prompt.generationPrompt }}</div>
+          </div>
+
+          <!-- 使用提示词按钮 -->
+          <div class="modal-actions">
+            <button
+              class="use-prompt-btn modal-btn"
+              @click="handleUsePrompt(selectedItem)"
+            >
+              <span class="btn-icon">✓</span>
+              <span class="btn-text">使用此提示词</span>
+            </button>
           </div>
         </div>
       </div>
@@ -160,6 +178,11 @@ const galleryItems = computed<GalleryItem[]>(() => {
 const handleItemClick = (item: GalleryItem) => {
   selectedItem.value = item
   showModal.value = true
+}
+
+// 处理使用提示词
+const handleUsePrompt = (item: GalleryItem) => {
+  promptStore.togglePrompt(item.categoryId, item.prompt.id, item.subCategoryId)
 }
 
 // 处理图片加载错误
@@ -252,7 +275,9 @@ const handleImageError = (e: Event) => {
   padding: 16px 12px 12px 12px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .gallery-item:hover .image-overlay {
@@ -261,6 +286,7 @@ const handleImageError = (e: Event) => {
 
 .overlay-text {
   color: white;
+  flex: 1;
 }
 
 .overlay-title {
@@ -273,6 +299,61 @@ const handleImageError = (e: Event) => {
   font-size: 11px;
   opacity: 0.9;
   font-family: monospace;
+}
+
+/* 使用提示词按钮 */
+.use-prompt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  pointer-events: auto;
+}
+
+.use-prompt-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.use-prompt-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-text {
+  white-space: nowrap;
+}
+
+/* Modal中的按钮 */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.modal-btn {
+  padding: 12px 32px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.modal-btn:hover {
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
 }
 
 /* 空状态 */
