@@ -579,18 +579,26 @@ categories:
           - id: board-lighting
             prompt_zh: 宽位光
             prompt_en: board lighting
+            preview: lighting/board-lighting.webp
+            generationPrompt: "photography, broad lighting, portrait with lit side of face toward camera, fuller look, classic setup --v 7 --ar 16:9"
 
           - id: short-lighting
             prompt_zh: 窄位光
             prompt_en: short lighting
+            preview: lighting/short-lighting.webp
+            generationPrompt: "photography, short lighting, portrait with shadow side facing camera, slimming effect, dramatic contour --v 7 --ar 16:9"
 
           - id: highkey-lighting
             prompt_zh: 高调光
             prompt_en: Highkey lighting
+            preview: lighting/highkey-lighting.webp
+            generationPrompt: "photography, highkey lighting, bright airy portrait with minimal shadows, white background, cheerful mood --v 7 --ar 16:9"
 
           - id: lowkey-lighting
             prompt_zh: 低调光
             prompt_en: Lowkey lighting
+            preview: lighting/lowkey-lighting.webp
+            generationPrompt: "photography, lowkey lighting, dark moody portrait with deep shadows, black background, mysterious atmosphere --v 7 --ar 16:9"
 
       - id: light-description
         name: 光线-通用描述
@@ -598,26 +606,38 @@ categories:
           - id: cinematic-lighting
             prompt_zh: 影视级灯光
             prompt_en: cinematic lighting
+            preview: lighting/cinematic-lighting.webp
+            generationPrompt: "photography, cinematic lighting, movie-quality scene with dramatic contrast, professional color grading, epic mood --v 7 --ar 16:9"
 
           - id: studio-lighting
             prompt_zh: 摄影棚灯光
             prompt_en: Studio lighting
+            preview: lighting/studio-lighting.webp
+            generationPrompt: "photography, studio lighting, professional portrait with controlled artificial light, softboxes, clean background --v 7 --ar 16:9"
 
           - id: natural-light
             prompt_zh: 自然光
             prompt_en: Natural light
+            preview: lighting/natural-light.webp
+            generationPrompt: "photography, natural light, portrait by window with soft daylight, authentic feel, organic shadows --v 7 --ar 16:9"
 
           - id: sunlight
             prompt_zh: 阳光
             prompt_en: Sunlight
+            preview: lighting/sunlight.webp
+            generationPrompt: "photography, sunlight, outdoor portrait in bright sunshine, warm golden tones, sun flare --v 7 --ar 16:9"
 
           - id: spotlight
             prompt_zh: 聚光灯
             prompt_en: Spotlight
+            preview: lighting/spotlight.webp
+            generationPrompt: "photography, spotlight, subject in focused beam of light, dramatic focal point, theater style --v 7 --ar 16:9"
 
           - id: glare
             prompt_zh: 耀光
             prompt_en: Glare
+            preview: lighting/glare.webp
+            generationPrompt: "photography, glare, intense bright light washing over scene, lens flare, overexposed highlights --v 7 --ar 16:9"
 
       - id: light-color
         name: 光线-色彩
@@ -625,74 +645,110 @@ categories:
           - id: neon-lighting
             prompt_zh: 霓虹灯光
             prompt_en: Neon lighting
+            preview: lighting/neon-lighting.webp
+            generationPrompt: "photography, neon lighting, urban night scene with colorful neon signs, vibrant glow, cyberpunk atmosphere --v 7 --ar 16:9"
 
           - id: red-light
             prompt_zh: 红光
             prompt_en: red light
+            preview: lighting/red-light.webp
+            generationPrompt: "photography, red light, portrait bathed in red illumination, dramatic intense mood, cinematic --v 7 --ar 16:9"
 
           - id: blue-light
             prompt_zh: 蓝光
             prompt_en: blue light
+            preview: lighting/blue-light.webp
+            generationPrompt: "photography, blue light, portrait with cool blue tones, calm mysterious atmosphere, nighttime feel --v 7 --ar 16:9"
 
           - id: green-light
             prompt_zh: 绿光
             prompt_en: green light
+            preview: lighting/green-light.webp
+            generationPrompt: "photography, green light, portrait in emerald illumination, sci-fi atmosphere, matrix style --v 7 --ar 16:9"
 
           - id: yellow-light
             prompt_zh: 黄光
             prompt_en: yellow light
+            preview: lighting/yellow-light.webp
+            generationPrompt: "photography, yellow light, portrait with golden yellow glow, cheerful warm mood, sunny feel --v 7 --ar 16:9"
 
           - id: orange-light
             prompt_zh: 橙光
             prompt_en: orange light
+            preview: lighting/orange-light.webp
+            generationPrompt: "photography, orange light, portrait with sunset orange tones, warm cozy atmosphere, autumn feel --v 7 --ar 16:9"
 
           - id: purple-light
             prompt_zh: 紫光
             prompt_en: purple light
+            preview: lighting/purple-light.webp
+            generationPrompt: "photography, purple light, portrait in violet illumination, dreamy mysterious mood, artistic --v 7 --ar 16:9"
 
           - id: pink-light
             prompt_zh: 粉光
             prompt_en: pink light
+            preview: lighting/pink-light.webp
+            generationPrompt: "photography, pink light, portrait with soft pink glow, romantic dreamy atmosphere, feminine --v 7 --ar 16:9"
 
           - id: white-light
             prompt_zh: 白光
             prompt_en: white light
+            preview: lighting/white-light.webp
+            generationPrompt: "photography, white light, portrait in pure white illumination, clean bright atmosphere, modern --v 7 --ar 16:9"
 
           - id: warm-light
             prompt_zh: 暖光
             prompt_en: warm light
+            preview: lighting/warm-light.webp
+            generationPrompt: "photography, warm light, portrait with golden warm tones, cozy inviting atmosphere, sunset feel --v 7 --ar 16:9"
 
           - id: cool-light
             prompt_zh: 冷光
             prompt_en: cool light
+            preview: lighting/cool-light.webp
+            generationPrompt: "photography, cool light, portrait with blue-tinted cool tones, refreshing calm atmosphere, morning feel --v 7 --ar 16:9"
 
           - id: golden-light
             prompt_zh: 金光
             prompt_en: golden light
+            preview: lighting/golden-light.webp
+            generationPrompt: "photography, golden light, portrait in rich golden hour illumination, warm luxurious glow, magical --v 7 --ar 16:9"
 
           - id: silver-light
             prompt_zh: 银光
             prompt_en: silver light
+            preview: lighting/silver-light.webp
+            generationPrompt: "photography, silver light, portrait with cool metallic sheen, elegant sophisticated atmosphere, moonlight feel --v 7 --ar 16:9"
 
           - id: amber-light
             prompt_zh: 琥珀光
             prompt_en: amber light
+            preview: lighting/amber-light.webp
+            generationPrompt: "photography, amber light, portrait in warm honey-colored glow, nostalgic vintage atmosphere, retro --v 7 --ar 16:9"
 
           - id: cyan-light
             prompt_zh: 青光
             prompt_en: cyan light
+            preview: lighting/cyan-light.webp
+            generationPrompt: "photography, cyan light, portrait with bright turquoise tones, fresh modern atmosphere, tech feel --v 7 --ar 16:9"
 
           - id: magenta-light
             prompt_zh: 品红光
             prompt_en: magenta light
+            preview: lighting/magenta-light.webp
+            generationPrompt: "photography, magenta light, portrait in vivid fuchsia illumination, bold artistic mood, contemporary --v 7 --ar 16:9"
 
           - id: violet-light
             prompt_zh: 紫罗兰光
             prompt_en: violet light
+            preview: lighting/violet-light.webp
+            generationPrompt: "photography, violet light, portrait with deep purple-blue tones, mysterious ethereal atmosphere, dreamy --v 7 --ar 16:9"
 
           - id: colorful-light
             prompt_zh: 彩色光
             prompt_en: colorful light
+            preview: lighting/colorful-light.webp
+            generationPrompt: "photography, colorful light, portrait with multiple rainbow colors, vibrant festive atmosphere, dynamic --v 7 --ar 16:9"
 
       - id: light-adjectives
         name: 光的形容词
@@ -700,94 +756,140 @@ categories:
           - id: coruscating
             prompt_zh: 闪烁的
             prompt_en: Coruscating
+            preview: lighting/coruscating.webp
+            generationPrompt: "photography, coruscating light, subject with flickering glittering illumination, dynamic sparkles, magical --v 7 --ar 16:9"
 
           - id: bright
             prompt_zh: 明亮的
             prompt_en: bright
+            preview: lighting/bright.webp
+            generationPrompt: "photography, bright light, scene flooded with intense illumination, high key, cheerful mood --v 7 --ar 16:9"
 
           - id: flashing
             prompt_zh: 闪烁的
             prompt_en: flashing
+            preview: lighting/flashing.webp
+            generationPrompt: "photography, flashing light, subject with intermittent bursts of light, strobe effect, energetic --v 7 --ar 16:9"
 
           - id: sparkling
             prompt_zh: 闪闪发光的
             prompt_en: sparkling
+            preview: lighting/sparkling.webp
+            generationPrompt: "photography, sparkling light, scene with tiny points of glittering light, festive magical atmosphere --v 7 --ar 16:9"
 
           - id: dappled
             prompt_zh: 斑驳的
             prompt_en: Dappled
+            preview: lighting/dappled.webp
+            generationPrompt: "photography, dappled light, subject with spotted light patterns through foliage, natural organic shadows --v 7 --ar 16:9"
 
           - id: glossy
             prompt_zh: 光滑的
             prompt_en: Glossy
+            preview: lighting/glossy.webp
+            generationPrompt: "photography, glossy light, subject with shiny reflective surface highlights, polished sleek appearance --v 7 --ar 16:9"
 
           - id: gleaming
             prompt_zh: 闪耀的
             prompt_en: Gleaming
+            preview: lighting/gleaming.webp
+            generationPrompt: "photography, gleaming light, subject with bright steady radiance, polished metallic shine --v 7 --ar 16:9"
 
           - id: shining
             prompt_zh: 发光的
             prompt_en: shining
+            preview: lighting/shining.webp
+            generationPrompt: "photography, shining light, subject emitting strong steady glow, luminous bright atmosphere --v 7 --ar 16:9"
 
           - id: radiant
             prompt_zh: 辐射的
             prompt_en: radiant
+            preview: lighting/radiant.webp
+            generationPrompt: "photography, radiant light, subject with glowing energy radiating outward, warm luminous aura --v 7 --ar 16:9"
 
           - id: glistening
             prompt_zh: 闪耀的
             prompt_en: Glistening
+            preview: lighting/glistening.webp
+            generationPrompt: "photography, glistening light, subject with wet sparkly surface reflections, fresh dewy appearance --v 7 --ar 16:9"
 
           - id: lustrous
             prompt_zh: 有光泽的
             prompt_en: lustrous
+            preview: lighting/lustrous.webp
+            generationPrompt: "photography, lustrous light, subject with soft pearlescent sheen, elegant refined glow --v 7 --ar 16:9"
 
           - id: lucid
             prompt_zh: 清澈的
             prompt_en: Lucid
+            preview: lighting/lucid.webp
+            generationPrompt: "photography, lucid light, scene with crystal clear transparent illumination, pure pristine quality --v 7 --ar 16:9"
 
           - id: resplendent
             prompt_zh: 辉煌的
             prompt_en: Resplendent
+            preview: lighting/resplendent.webp
+            generationPrompt: "photography, resplendent light, subject with dazzling magnificent brilliance, glorious radiant atmosphere --v 7 --ar 16:9"
 
           - id: shimmering
             prompt_zh: 闪烁的
             prompt_en: Shimmering
+            preview: lighting/shimmering.webp
+            generationPrompt: "photography, shimmering light, subject with soft wavering glow, gentle flowing luminescence --v 7 --ar 16:9"
 
           - id: spectral
             prompt_zh: 光谱的
             prompt_en: Spectral
+            preview: lighting/spectral.webp
+            generationPrompt: "photography, spectral light, scene with rainbow prism colors, ethereal ghostly quality --v 7 --ar 16:9"
 
           - id: ablaze
             prompt_zh: 着火的
             prompt_en: Ablaze
+            preview: lighting/ablaze.webp
+            generationPrompt: "photography, ablaze light, subject engulfed in intense fire-like glow, burning passionate atmosphere --v 7 --ar 16:9"
 
           - id: aglow
             prompt_zh: 发光的
             prompt_en: Aglow
+            preview: lighting/aglow.webp
+            generationPrompt: "photography, aglow light, subject with warm gentle inner radiance, soft comforting luminescence --v 7 --ar 16:9"
 
           - id: beaming
             prompt_zh: 欣喜的
             prompt_en: Beaming
+            preview: lighting/beaming.webp
+            generationPrompt: "photography, beaming light, subject with bright joyful radiance, happy cheerful glow --v 7 --ar 16:9"
 
           - id: blazing
             prompt_zh: 熊熊燃烧的
             prompt_en: Blazing
+            preview: lighting/blazing.webp
+            generationPrompt: "photography, blazing light, subject with fierce intense flames of light, powerful fiery atmosphere --v 7 --ar 16:9"
 
           - id: dazzling
             prompt_zh: 眼花缭乱的
             prompt_en: Dazzling
+            preview: lighting/dazzling.webp
+            generationPrompt: "photography, dazzling light, subject with blindingly brilliant illumination, stunning overwhelming brightness --v 7 --ar 16:9"
 
           - id: effulgent
             prompt_zh: 光辉灿烂的
             prompt_en: Effulgent
+            preview: lighting/effulgent.webp
+            generationPrompt: "photography, effulgent light, subject with radiant shining splendor, magnificent glowing brilliance --v 7 --ar 16:9"
 
           - id: twinkling
             prompt_zh: 闪烁的
             prompt_en: Twinkling
+            preview: lighting/twinkling.webp
+            generationPrompt: "photography, twinkling light, subject with intermittent sparkles, starry magical atmosphere --v 7 --ar 16:9"
 
           - id: splendor
             prompt_zh: 华丽的
             prompt_en: splendor
+            preview: lighting/splendor.webp
+            generationPrompt: "photography, splendor light, subject with magnificent grandeur, majestic glorious radiance --v 7 --ar 16:9"
 
   # 艺术家/摄影师（特殊分类：建议单选）- 放在最后
   - id: artists
