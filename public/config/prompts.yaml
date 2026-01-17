@@ -268,6 +268,12 @@ categories:
             prompt_en: bottom-up view
             preview: lens-position/bottom-up-view.webp
             generationPrompt: "photography, bottom up view, tree canopy from ground level, branches against sky, sunlight filtering through --v 7 --ar 16:9"
+            
+          - id: eye-level-shot
+            prompt_zh: 平视角度
+            prompt_en: eye level shot
+            preview: lens-position/eye-level-shot.webp
+            generationPrompt: "Photography, eye level shot, a woman facing a sea of red maple leaves, with her back to the camera, the maple forest lush and green, showcasing the essence of autumn --ar 16:9 --v 7 --q 1 --s 250"
 
       - id: shot-portrait
         name: 景别-人物

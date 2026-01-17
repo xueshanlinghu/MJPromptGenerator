@@ -23,6 +23,8 @@ parameters:
         label: "V5"
       - value: "niji-6"
         label: "Niji 6 (动漫)"
+      - value: "niji-7"
+        label: "Niji 7 (动漫)"
 
   # 宽高比
   - id: aspectRatio
