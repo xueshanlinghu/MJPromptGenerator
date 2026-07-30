@@ -6,11 +6,15 @@ parameters:
     name: 模型版本
     type: select
     param: --v
-    default: "7"
+    default: "8.2"
     description: 选择 Midjourney 模型版本
     options:
+      - value: "8.2"
+        label: "V8.2 (推荐)"
+      - value: "8.1"
+        label: "V8.1"
       - value: "7"
-        label: "V7 (推荐)"
+        label: "V7"
       - value: "6.1"
         label: "V6.1"
       - value: "6.0"
